@@ -1,88 +1,124 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%   XI SIINTEC - International Symposium on Innovation and Technology
-%   LaTeX Article Template (Corrected Version 2)
-%
-%   Based on the "SIINTEC TEMPLATE -2025.doc.pdf"
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% =============================================================================
+% TEMPLATE DE ARTIGO PARA O SIINTEC
+% Use este arquivo para escrever seu conteúdo.
+% Compile com pdfLaTeX.
+% =============================================================================
 
-\documentclass[a4paper,12pt,twocolumn]{article}
-\usepackage{siintec}
+% Carrega a classe de formatação do SIINTEC.
+% O arquivo 'siintec.cls' deve estar na mesma pasta.
+\documentclass{siintec}
 
-\title{Template for Preparing an Article}
-\author{Author One\textsuperscript{1}, Author Two\textsuperscript{2}, Author Three\textsuperscript{3*}}
-\affiliations{
-    \textsuperscript{1}Organization Name, Department Name, City, State, Country \\
-    \textsuperscript{2}Another Organization, Department, City, State, Country \\
-    \textsuperscript{3}Yet Another Org, Dept, City, State, Country \\
-    *Corresponding author: author3@email.com
+% --- PACOTES OPCIONAIS (adicionar se necessário) ---
+\usepackage[brazil]{babel} % Para hifenização em português
+\usepackage{lipsum} % Para gerar texto de exemplo (remover no artigo final)
+
+% --- INFORMAÇÕES DO ARTIGO (FRONT MATTER) ---
+\title{Template para a Preparação de um Artigo para o SIINTEC} % [cite: 26]
+
+% Use \author para cada autor e \thanks para as afiliações numéricas [cite: 28]
+\author{
+  Autor Um\thanks{Nome da Organização, Nome do Departamento, Cidade, Estado, País} \and
+  Autor Dois\thanks{Nome da Organização, Nome do Departamento, Cidade, Estado, País} \and
+  Autor Três\thanks{Nome da Organização, Nome do Departamento, Cidade, Estado, País}
 }
-\date{}
 
+% E-mail obrigatório do autor correspondente [cite: 6, 29]
+\correspondingauthor{Corresponding author: autor3@email}
+
+
+% --- INÍCIO DO DOCUMENTO ---
 \begin{document}
 
+% Gera o título, autores e afiliações
 \maketitle
 
+% --- RESUMO E PALAVRAS-CHAVE ---
 \begin{abstract}
-This document gives formatting instructions for authors preparing papers for publication in the SIINTEC. Authors are encouraged to prepare manuscripts directly using this template. Use Times New Roman, 10 (Font Size), Bold, and >1800 to 2000 characters with spaces.
+Este documento fornece instruções de formatação para autores que preparam artigos para publicação no SIINTEC. [cite: 7] Os autores são encorajados a preparar os manuscritos diretamente usando este template. [cite: 8] O resumo deve ter entre 1800 e 2000 caracteres com espaços. [cite: 9] O corpo do resumo é em Times New Roman, tamanho 10, negrito. [cite: 9]
 \end{abstract}
 
 \begin{keywords}
-Times New Roman. 10 (Font Size). Bold.
+Template. LaTeX. SIINTEC. Artigo. Exemplo. % Mínimo 3, máximo 5 palavras, separadas por ponto [cite: 10]
 \end{keywords}
 
-\begin{abbreviations}
-Abbreviation + comma + the meaning of the abbreviation. They should be separated by a dot.
-\end{abbreviations}
-\normalsize
 
-\section{Ease of Use}
-An easy way to comply with the paper formatting requirements is to use this document as a template and simply type your text into it. The template is used to format your paper and style the text. All margins, column widths, line spaces, and text fonts are prescribed; please do not alter them.
+% --- CORPO DO ARTIGO ---
+% O texto principal deve ter espaçamento duplo [cite: 32] e fonte 12pt.
+\doublespacing
 
-\subsection{Page Layout}
-Your paper must use a page size corresponding to A4 which is 210 mm wide and 297 mm long. The margins are set as follows: top=15 mm, bottom= 15 mm, right =17.5 mm, left=20 mm. Your paper must be in two column format with a space of approximately 1.93 characters between columns.
+\section{Facilidade de Uso}
+Uma maneira fácil de cumprir os requisitos de formatação do artigo é usar este documento como um modelo e simplesmente digitar seu texto nele. [cite: 18] O modelo é usado para formatar seu artigo e estilizar o texto. [cite: 19] Todas as margens, larguras de coluna, espaços de linha e fontes de texto são predefinidas; por favor, não as altere. [cite: 20]
 
-\subsubsection{Front Matter}
-The title should be in Times New Roman, font size 12, bold. Do not use more than 3 lines. The title must be separated from the authors by a double paragraph space.
+\lipsum[1] % Texto de exemplo. Remova \lipsum no seu artigo.
 
-\section{Figures, Tables, and Equations}
+\section{Estrutura e Formatação}
+
+\subsection{Layout da Página}
+Seu artigo deve usar o tamanho de página A4. [cite: 22] As margens estão definidas na classe do documento. [cite: 23] O formato é de duas colunas. [cite: 24]
 \lipsum[2]
 
-\begin{table}[h!]
-    \caption{Font Sizes for Papers}
-    \label{tab:fonts}
-    \centering
-    \fontsize{10}{12}\selectfont
-    \begin{tabular}{|l|l|l|}
-        \hline
-        \textbf{Size} & \textbf{Appearance} & \textbf{Usage} \\
-        \hline
-        12pt & \textbf{Bold} & Section titles \\
-        12pt & \mbox{\ul{Underlined}} & Subsection titles \\
-        \hline
-    \end{tabular}
+\subsubsection{Equações}
+As equações devem ser centralizadas com os números alinhados à direita. [cite: 39]
+\begin{equation}
+E = mc^2 \label{eq:einstein}
+\end{equation}
+A Equação \ref{eq:einstein} é um exemplo de formatação. Se usar o MathType, formate as equações como Times + Symbol ou Calibri Math 10. [cite: 40]
+
+\subsection{Figuras e Tabelas}
+As tabelas e figuras devem ser inseridas próximas à sua primeira menção no texto. [cite: 44]
+
+% Exemplo de Tabela [cite: 61, 62, 63]
+\begin{table}[h]
+\caption{Fontes recomendadas para o artigo.} % Legenda acima da tabela.
+\label{tab:fonts}
+\centering
+\begin{tabular}{ll}
+\hline
+\textbf{Tamanho} & \textbf{Uso} \\
+\hline
+12pt & Texto principal, Títulos de seção \\ % [cite: 15, 32]
+10pt & Resumo, Palavras-chave, Afiliações \\ % [cite: 9, 10, 15]
+\hline
+\end{tabular}
 \end{table}
 
-\begin{equation}
-    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-    \label{eq:quadratic}
-\end{equation}
+% Exemplo de Figura [cite: 51, 54]
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth]{example-image-a} % Substitua pelo arquivo da sua imagem
+\caption{Exemplo de uma figura de uma coluna. A resolução deve ser de pelo menos 300 dpi. [cite: 48] Legendas de múltiplas linhas devem ser justificadas. [cite: 53]}
+\label{fig:exemplo}
+\end{figure}
 
 \lipsum[3-4]
 
-\section*{Acknowledgement}
-The heading of the Acknowledgement section must not be numbered. This is achieved by using the starred version of the \texttt{section} command.
+% --- SEÇÕES FINAIS (SEM NUMERAÇÃO) ---
+\section*{Agradecimentos}
+O cabeçalho da seção de Agradecimentos não deve ser numerado. [cite: 100]
 
+% --- REFERÊNCIAS ---
+% O estilo é Vancouver, numerado sequencialmente[cite: 66, 68, 72].
+% O tamanho da fonte é 10pt[cite: 65].
 \begin{thebibliography}{99}
-\bibitem{fogg2003}
-Fogg BJ. Persuasive technology: using computers to change what we think and do. Boston: Morgan Kaufmann Publishers; 2003. p. 30-5.
 
-\bibitem{hirsh2002}
-Hirsh H, Coen MH, Mozer MC, Hasha R, Flanagan JL. Room service, Al-style. IEEE Intell Syst. 2002;14(2):8-19.
+\bibitem{fogg2003} % Livro [cite: 73, 75]
+Fogg BJ. Persuasive technology: using computers to change what we think and do. Boston: Morgan Kaufmann Publishers; 2003. p. 30–5.
 
-\bibitem{eckes2000}
+\bibitem{hirsh2002} % Artigo de Periódico [cite: 79, 81]
+Hirsh H, Coen MH, Mozer MC, Hasha R, Flanagan JL. Room service, AI-style. IEEE Intell Syst. 2002;14(2):8–19.
+
+\bibitem{leclercq2016} % Anais de Conferência [cite: 83, 85]
+Leclercq P, Heylighen A. 5.8 analogies per hour: A designer's view on analogical reasoning. In: 7th International Conference on Artificial Intelligence in Design. Dordrecht: Kluwer Academic Publishers; 2016. p. 285–303.
+
+\bibitem{eckes2000} % E-Book [cite: 88, 90]
 Eckes T. The developmental social psychology of gender [e-book]. Mahwah (NJ): Lawrence Erlbaum; 2000 [cited 2025 May 27]. Available from: netLibrary e-book.
+
+\bibitem{steiner2013} % Artigo de E-Journal [cite: 93, 95]
+Steiner A. Understanding hypertext in the context of reading on the web: Language learners' experience. Curr Issues Educ [Internet]. 2013 [cited 2025 May 27];6(12):2015–219. Available from: http://cie.ed.asu.edu/volume6/number12/
+
 \end{thebibliography}
 
 \end{document}
+% =============================================================================
+% FIM DO ARQUIVO artigo.tex
+% =============================================================================
