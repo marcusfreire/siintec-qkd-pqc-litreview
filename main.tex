@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   XI SIINTEC - International Symposium on Innovation and Technology
+%   LaTeX Article Template (Corrected Version 2)
+%
+%   Based on the "SIINTEC TEMPLATE -2025.doc.pdf"
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,12pt,twocolumn]{article}
+\usepackage{siintec}
+
+\title{Template for Preparing an Article}
+\author{Author One\textsuperscript{1}, Author Two\textsuperscript{2}, Author Three\textsuperscript{3*}}
+\affiliations{
+    \textsuperscript{1}Organization Name, Department Name, City, State, Country \\
+    \textsuperscript{2}Another Organization, Department, City, State, Country \\
+    \textsuperscript{3}Yet Another Org, Dept, City, State, Country \\
+    *Corresponding author: author3@email.com
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document gives formatting instructions for authors preparing papers for publication in the SIINTEC. Authors are encouraged to prepare manuscripts directly using this template. Use Times New Roman, 10 (Font Size), Bold, and >1800 to 2000 characters with spaces.
+\end{abstract}
+
+\begin{keywords}
+Times New Roman. 10 (Font Size). Bold.
+\end{keywords}
+
+\begin{abbreviations}
+Abbreviation + comma + the meaning of the abbreviation. They should be separated by a dot.
+\end{abbreviations}
+\normalsize
+
+\section{Ease of Use}
+An easy way to comply with the paper formatting requirements is to use this document as a template and simply type your text into it. The template is used to format your paper and style the text. All margins, column widths, line spaces, and text fonts are prescribed; please do not alter them.
+
+\subsection{Page Layout}
+Your paper must use a page size corresponding to A4 which is 210 mm wide and 297 mm long. The margins are set as follows: top=15 mm, bottom= 15 mm, right =17.5 mm, left=20 mm. Your paper must be in two column format with a space of approximately 1.93 characters between columns.
+
+\subsubsection{Front Matter}
+The title should be in Times New Roman, font size 12, bold. Do not use more than 3 lines. The title must be separated from the authors by a double paragraph space.
+
+\section{Figures, Tables, and Equations}
+\lipsum[2]
+
+\begin{table}[h!]
+    \caption{Font Sizes for Papers}
+    \label{tab:fonts}
+    \centering
+    \fontsize{10}{12}\selectfont
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \textbf{Size} & \textbf{Appearance} & \textbf{Usage} \\
+        \hline
+        12pt & \textbf{Bold} & Section titles \\
+        12pt & \mbox{\ul{Underlined}} & Subsection titles \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{equation}
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+    \label{eq:quadratic}
+\end{equation}
+
+\lipsum[3-4]
+
+\section*{Acknowledgement}
+The heading of the Acknowledgement section must not be numbered. This is achieved by using the starred version of the \texttt{section} command.
+
+\begin{thebibliography}{99}
+\bibitem{fogg2003}
+Fogg BJ. Persuasive technology: using computers to change what we think and do. Boston: Morgan Kaufmann Publishers; 2003. p. 30-5.
+
+\bibitem{hirsh2002}
+Hirsh H, Coen MH, Mozer MC, Hasha R, Flanagan JL. Room service, Al-style. IEEE Intell Syst. 2002;14(2):8-19.
+
+\bibitem{eckes2000}
+Eckes T. The developmental social psychology of gender [e-book]. Mahwah (NJ): Lawrence Erlbaum; 2000 [cited 2025 May 27]. Available from: netLibrary e-book.
+\end{thebibliography}
+
+\end{document}

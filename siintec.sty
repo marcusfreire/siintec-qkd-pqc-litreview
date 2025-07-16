@@ -1,0 +1,131 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{siintec}[2025/07/15 SIINTEC Article Formatting]
+
+% --- Packages for formatting ---
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{times}
+\RequirePackage[a4paper,top=15mm,bottom=15mm,left=20mm,right=17.5mm,columnsep=1.93em,headheight=68.62pt]{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{amsmath}
+\RequirePackage{fancyhdr}
+\RequirePackage{lipsum}
+\RequirePackage{soul}
+\RequirePackage{titlesec}
+\RequirePackage{caption}
+\RequirePackage{setspace}
+
+% --- Font and spacing setup ---
+\onehalfspacing
+\renewcommand{\normalsize}{\fontsize{12}{14.5}\selectfont}
+
+% --- Header and footer configuration ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\includegraphics[width=\textwidth]{sintec.png}}
+\fancyfoot[L]{ISSN: 2357-7592}
+\fancyfoot[R]{\small XI INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY \\ \small Quantum Technologies: The information revolution that will change the future - 2025}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{68.62pt}
+
+% --- Title section customization ---
+%\makeatletter
+\newcommand{\theauthors}{}
+\newcommand{\theaffiliations}{}
+\renewcommand{\author}[1]{\gdef\theauthors{#1}}
+\newcommand{\affiliations}[1]{\gdef\theaffiliations{#1}}
+\renewcommand{\@maketitle}{%
+    \thispagestyle{fancy}
+    \vspace*{1cm}
+    \begin{center}
+        {\fontsize{12}{14}\bfseries \@title \par}
+        \vspace{2em}
+        {\fontsize{10}{12}\bfseries \theauthors \par}
+        \vspace{1em}
+        {\fontsize{10}{12}\itshape \theaffiliations \par}
+    \end{center}
+    \vspace{1.5em}
+}
+%\makeatother
+
+
+
+% --- Custom environments (abstract, keywords, abbreviations) ---
+\renewenvironment{abstract}{%
+    \fontsize{10}{12}\selectfont\noindent\textbf{Abstract: }\bfseries
+}{%
+    \par%\vspace{1em}
+}
+\newenvironment{keywords}{%
+    \fontsize{10}{12}\selectfont\noindent\textbf{Keywords: }\bfseries
+}{%
+    \par%\vspace{1em}
+}
+\newenvironment{abbreviations}{%
+    \fontsize{10}{12}\selectfont\noindent\textbf{Abbreviations: }\bfseries
+}{%
+
+    \par%\vspace{2em}
+}
+
+
+% --- Section headings customization ---
+\titleformat{\section}
+  {\normalfont\fontsize{12}{14}\bfseries}
+  {\thesection}
+  {1em}
+  {}
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{14}\bfseries}
+  {\thesubsection}
+  {1em}
+  {}
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{10}{12}\itshape}
+  {\thesubsubsection}
+  {1em}
+  {}
+\titlespacing*{\section}{0pt}{*3}{*2}
+\titlespacing*{\subsection}{0pt}{*3}{*2}
+\titlespacing*{\subsubsection}{0pt}{*3}{*2}
+
+% --- Caption customization ---
+\captionsetup[table]{
+    position=top,
+    justification=raggedright,
+    singlelinecheck=off,
+    font=bf,
+    labelsep=period
+}
+\captionsetup[figure]{
+    position=bottom,
+    justification=justified,
+    singlelinecheck=off,
+    font=bf,
+    labelsep=period,
+    belowskip=10pt
+}
+
+% --- References section customization ---
+\makeatletter
+\renewenvironment{thebibliography}[1]
+     {\section*{References}%
+      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+      \fontsize{10}{12}\selectfont
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\makeatother
