@@ -37,7 +37,7 @@
     {\thesubsubsection.}{0.3em}{}
 \titlespacing*{\subsubsection}{0pt}{1.2ex plus 0.2ex minus .2ex}{0.5ex}
 
-\geometry{a4paper,top=13mm,bottom=15mm,left=20mm,right=17.5mm}
+\geometry{a4paper,top=13mm,bottom=40mm,left=20mm,right=17.5mm}
 \setlength{\headheight}{68.89616pt}
 \setlength{\headsep}{0pt}
 \setlength{\parindent}{0pt}
@@ -53,7 +53,7 @@
     \includegraphics[width=\paperwidth]{siintec.png}}%
 }
 \fancyfoot{} % clear all footer fields
-\fancyfoot[L]{\footnotesize XI INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY \\ Quantum Technologies: The information revolution that will change the future -- 2025}
+\fancyfoot[L]{\fontsize{10}{12}\selectfont\textcolor{gray}{ISSN: 2357-7592 \\ \textit{XI INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY \\ Quantum Technologies: The information revolution that will change the future -- 2025}}}
 
 % Title and author information
 \title{\vspace*{-1em}\bfseries\fontsize{12}{14}\selectfont Template for Preparing an Article\vspace*{-0.5em}}
@@ -77,6 +77,8 @@
  {\begin{center}\begin{minipage}{0.928\textwidth}\setstretch{1}
         \fontsize{10}{12}\selectfont}
  {\end{minipage}\end{center}}
+
+
 
  % Declare a new caption type named 'Graphic'
 \DeclareCaptionType{graphic}[Graphic][graph]
@@ -110,10 +112,11 @@
 
 % Texto principal: Times New Roman, 12pt, espaçamento duplo
 \setstretch{1.5}
+% Espaçamento duplo entre parágrafos
+\setlength{\parskip}{0.5\baselineskip}
 \normalsize
 
-%\twocolumn
-%\begin{multicols}{2}
+
 \section{Introdução to Font Sizes for Papers}
 To use this template, you will need to (1) apply the embedded styles to each paragraph-level item in your manuscript or (2) use the specifications shown in Table 1 to format your manuscript, with this template as a visual guide. The page limit for the article is between 6 (six) and 8 (eight) pages, considering text, tables, figures and photos. 
 
@@ -151,17 +154,11 @@ To use this template, you will need to (1) apply the embedded styles to each par
 \end{table}
 
 \section{Ease of Use}
-Ease of Use
-
 An easy way to comply with the paper formatting requirements is to use this document as a template and simply type your text into it.
 
 The template is used to format your paper and style the text. All margins, column widths, line spaces, and text fonts are prescribed; please do not alter them. 
-
 \subsection{Page Layout}
-
 Your paper must use a page size corresponding to A4 which is 210 mm wide and 297 mm long. The margins are set as follows: top= 15 mm, bottom= 15 mm, right=17.5 mm, left = 20 mm. Your paper must be in two column format with a space of 1.93 characters between columns.
-
-
 \subsubsection{Front Matter}
 The title should in Times New Roman, font size 12, bold. Do not use more than 3 lines. The title must be separated from the authors by a double paragraph space (in 12-point font). Use numerical superscript callouts as shown in this template to link authors with their affiliations.
 Corresponding author should be denoted with an asterisk as shown. E-mail address is compulsory for the corresponding author.
@@ -239,27 +236,60 @@ Figure descriptions should be placed above the figures (however, abbreviations, 
 Table heads should appear above the tables. Tables must be numbered using Arabic numerals. Table captions must be left-justified and in 12 pt Regular font. Captions with table numbers must be placed before their associated tables, as shown in \autoref{tab:font-sizes}.
 
 \section{References Formats}
-The heading of the References section must not be numbered. All reference items must be in 10 pt font. Number the reference items consecutively in square brackets (e.g. \cite{exemplo}). When referring to a reference item, please simply use the reference number, as in (name of the first author + and colleagues (if applicable) + year of publication + number of the reference \cite{exemplo2}.  Do not use “Ref. \cite{exemplo3}” or “Reference \cite{exemplo3}” use the name of the author(s) as described before”.  Multiple references are each numbered with separate brackets (e.g. \cite{exemplo}, \cite{exemplo2,exemplo3}).
+The heading of the References section must not be numbered. All reference items must be in 10 pt font. Number the reference items consecutively in square brackets (e.g. \cite{fogg2003}). When referring to a reference item, please simply use the reference number, as in (name of the first author + and colleagues (if applicable) + year of publication + number of the reference \cite{hirsh2002}.  Do not use “Ref. \cite{eckes2000}” or “Reference \cite{eckes2000}” use the name of the author(s) as described before”.  Multiple references are each numbered with separate brackets (e.g. \cite{fogg2003}, \cite{hirsh2002,eckes2000}).
 A complete reference should follow the Vancouver style, including the name(s) of the author(s) and/or editor(s), the title of the article, the name of the journal, book, or conference proceedings, the name of the publisher, the year of publication. This should be followed by the volume, issue number (if applicable), and page range. At the end, include the DOI (if available).
 The basic principle is that the reference should be sufficiently detailed so that the reader can easily locate the source and assess its authority and objectivity.
+
+\textbf{\underline{Vancouver Style}\\}
+{\setstretch{1.0}\fontsize{10}{12}\selectfont
+Book\\
+\textbf{Standard format:}\\
+Author(s). Title of the book. Edition (if not first). Place of publication: Publisher; Year. p. pages (if applicable).\\
+\textbf{Example:}\\
+1. Fogg BJ. Persuasive technology: using computers to change what we think and do. Boston: Morgan Kaufmann Publishers; 2003. p. 30–5.\\
+
+Journal Articles\\
+\textbf{Standard format:}\\
+Author(s). Title of article. Journal Title. Year;Volume(Issue):Pages.\\
+\textbf{Example:}\\
+2. Hirsh H, Coen MH, Mozer MC, Hasha R, Flanagan JL. Room service, AI-style. IEEE Intell Syst. 2002;14(2):8–19.\\
+
+Conference Proceedings\\
+\textbf{Standard format:}\\
+Author(s). Title of article. In: Title of conference. Place of publication: Publisher; Year. p. pages.\\
+\textbf{Example:}\\
+3. Leclercq P, Heylighen A. 5.8 analogies per hour: A designer's view on analogical reasoning. In: 7th International Conference on Artificial Intelligence in Design. Dordrecht: Kluwer Academic Publishers; 2016. p. 285–303.\\
+
+E-Books\\
+\textbf{Standard format:}\\
+Author(s). Title of e-book [e-book]. Place of publication: Publisher; Year [cited Year Month Day]. Available from: URL\\
+\textbf{Example:}\\
+4. Eckes T. The developmental social psychology of gender [e-book]. Mahwah (NJ): Lawrence Erlbaum; 2000 [cited 2025 May 27]. Available from: netLibrary e-book.\\
+
+E-Journal Articles\\
+\textbf{Standard format:}\\
+Author(s). Title of article. Journal Title [Internet]. Year [cited Year Month Day];Volume(Issue):Pages. Available from: URL\\
+\textbf{Example:}\\
+5. Steiner A. Understanding hypertext in the context of reading on the web: Language learners' experience. Curr Issues Educ [Internet]. 2013 [cited 2025 May 27];6(12):2015–219. Available from: \url{http://cie.ed.asu.edu/volume6/number12/} \\
+
+}
 
 
 \section*{Acknowlegement}
 The heading of the Acknowledgment section and the References section must not be numbered.
 
-%\section*{References}
+\section*{References}
 
-
-\begin{thebibliography}{99}
+\renewcommand{\refname}{} % Optional: custom heading
+\begingroup
 \setstretch{1.0}
 \fontsize{10}{12}\selectfont
 \setlength{\parskip}{0pt}
 \setlength{\itemsep}{0pt}
-\bibitem{exemplo} Fogg, B.J. \textit{Persuasive technology: using computers to change what we think and do}. Morgan Kaufman Publishers, Boston, 2003, 30-35.
-\bibitem{exemplo2} Hirsh, T., Coen, M.H., Mozer, M.C., Hasha, R., Flanagan, J.L. "Room service, AI-style," \textit{IEEE intelligent systems}, 14 (2). 8-19, Jul.2002.
-\bibitem{exemplo3} T. Eckes, \textit{The Developmental Social Psychology of Gender}, Lawrence Erlbaum, 2000. [E-book] Available: netLibrary e-book.
-\end{thebibliography}
 
+\bibliographystyle{unsrt}
+\bibliography{refs}
 
-%\end{multicols}
+\endgroup
+
 \end{document}
