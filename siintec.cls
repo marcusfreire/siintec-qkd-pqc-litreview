@@ -92,13 +92,21 @@
 
 % Bibliography formatting
 \AtEndDocument{%
-  \renewcommand{\refname}{}
+  \renewcommand{\refname}{References}
   \begingroup
     \setstretch{1.0}
     \fontsize{10}{12}\selectfont
     \setlength{\parskip}{0pt}
     \setlength{\itemsep}{0pt}
   \endgroup
+}
+
+\usepackage{etoolbox}
+\AtBeginEnvironment{thebibliography}{%
+  \fontsize{10}{12}\selectfont
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \renewcommand{\@biblabel}[1]{[#1]} % Square brackets for numbering
 }
 
 % Commands for easy formatting
