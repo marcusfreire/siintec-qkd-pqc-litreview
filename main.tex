@@ -1,126 +1,28 @@
 % Template SIINTEC 2025 - Coluna única para Abstract/Keywords/Abbreviations, duas colunas para o restante
-\documentclass[12pt, twocolumn, a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-%\usepackage[brazil]{babel}
-\usepackage{graphicx}
-\usepackage{amsmath,amssymb}
-\usepackage{geometry}
-\usepackage{setspace}
-\usepackage{indentfirst}
-\usepackage{hyperref}
-\usepackage{mathptmx} % Times New Roman
-\usepackage{fancyhdr}
-%\usepackage{multicol}
-\usepackage{tikz}
-\usepackage{titlesec}
-\usepackage{fullwidth}
-\usepackage{blindtext}
-\usepackage{lipsum} % For dummy text
-\usepackage{authblk} % For author affiliations
-\usepackage{caption} % Load the caption package
-
-
-
-\titleformat{\section}
-    {\normalfont\bfseries\fontsize{12}{14}\selectfont} % Times, bold, 12pt
-    {\thesection.}{0.3em}{}
-\titlespacing*{\section}{0pt}{1.2ex plus 0.2ex minus .2ex}{0.5ex}
-
-\titleformat{\subsection}
-    {\normalfont\bfseries\fontsize{12}{14}\selectfont} % Times, bold, 12pt
-    {\thesubsection.}{0.3em}{}
-\titlespacing*{\subsection}{0pt}{1.2ex plus 0.2ex minus .2ex}{0.5ex}
-
-\titleformat{\subsubsection}
-    {\normalfont\bfseries\fontsize{12}{14}\selectfont} % Times, bold, 12pt
-    {\thesubsubsection.}{0.3em}{}
-\titlespacing*{\subsubsection}{0pt}{1.2ex plus 0.2ex minus .2ex}{0.5ex}
-
-\geometry{a4paper,top=13mm,bottom=40mm,left=20mm,right=17.5mm}
-\setlength{\headheight}{68.89616pt}
-\setlength{\headsep}{0pt}
-\setlength{\parindent}{0pt}
-
-% Header personalizado
-\pagestyle{fancy}
-% Remove the header rule (line)
-\renewcommand{\headrulewidth}{0pt}
-%\usepackage{etoolbox}
-\fancyhead{}
-\fancyhead[l]{%
-  \makebox[0pt][l]{\hspace*{-\oddsidemargin}\hspace*{-1in}%
-    \includegraphics[width=\paperwidth]{siintec.png}}%
-}
-\fancyfoot{} % clear all footer fields
-\fancyfoot[L]{\fontsize{10}{12}\selectfont\textcolor{gray}{ISSN: 2357-7592 \\ \textit{XI INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY \\ Quantum Technologies: The information revolution that will change the future -- 2025}}}
+\documentclass{siintec}
 
 % Title and author information
-\title{\vspace*{-1em}\bfseries\fontsize{12}{14}\selectfont Template for Preparing an Article\vspace*{-0.5em}}
+\siintectitle{Template for Preparing an Article}
 
-% Author information
-% Use \author[<affiliation>]{<name>} for multiple authors
-\author[*,1]{\bfseries\fontsize{10}{12}\selectfont Author One}
-\author[2]{\bfseries\fontsize{10}{12}\selectfont Author Two}
-\author[3]{\bfseries\fontsize{10}{12}\selectfont Author Three\vspace*{-1em}}
-% Use \affil[<affiliation>]{<institution>} for affiliations
-\affil[1]{\itshape\fontsize{10}{12}\selectfont Organization Name, Department Name, City, State, Country}
-\affil[2]{\itshape\fontsize{10}{12}\selectfont Organization Name, Department Name, City, State, Country}
-\affil[3]{\itshape\fontsize{10}{12}\selectfont Organization Name, Department Name, City, State, Country}
-% Use \affil[*]{<email>} for corresponding author
-\affil[*]{\itshape\fontsize{10}{12}\selectfont Corresponding author: institution; addresses; author3@email}
-% Leave date empty to omit it
-\date{\itshape\fontsize{10}{12}\selectfont }   % Leave empty to omit date
+% Authors and affiliations
+\siintecauthor[*,1]{Author One}
+\siintecauthor[2]{Author Two}  
+\siintecauthor[3]{Author Three}
+\siintecaffil[1]{Organization Name, Department Name, City, State, Country}
+\siintecaffil[2]{Organization Name, Department Name, City, State, Country}
+\siintecaffil[3]{Organization Name, Department Name, City, State, Country}
+\siintecaffil[*]{Corresponding author: institution; addresses; author3@email}
+\siintecdate
 
-% Abstract section formatting
-\renewenvironment{abstract}
- {\begin{center}\begin{minipage}{0.928\textwidth}\setstretch{1}
-        \fontsize{10}{12}\selectfont}
- {\end{minipage}\end{center}}
-
-
-
- % Declare a new caption type named 'Graphic'
-\DeclareCaptionType{graphic}[Graphic][graph]
-
-% Redefine figure, table, and graphic names to use bold font
-\renewcommand{\figurename}{\textbf{Figure}} 
-\renewcommand{\tablename}{\textbf{Table}} 
-\renewcommand{\graphicname}{\textbf{Graphic}} 
-
-
-% Begin document 
 \begin{document}
 
-% Title and author information
-\twocolumn[
-  \maketitle % Include title and author information if desired
-  \thispagestyle{fancy}  % Force fancy on the first page
-  \vspace*{-3.5em} % Adjust this value as needed to reduce space
-  \begin{abstract}
-    % Your abstract text goes here.
-    \textbf{Abstract: This document gives formatting instructions for authors preparing papers for publication in the SIINTEC. Authors are encouraged to prepare manuscripts directly using this template. Use Times New Roman, 10 (Font Size), Bold (or Bold Italic for name of species \textit{Candida albicans}), and >1800 to 2000 characters with spaces.}
+% Title, authors and abstract
+%\maketitle
 
-    \textbf{Keywords: Times New Roman, 10 (Font Size), Bold (or Bold Italic for name of species \textit{Candida albicans}). Use the minimum of 3 words and the maximum of 5 words separated by a dot.}
-
-    \textbf{Abbreviations: Times New Roman, 10 (Font Size), Bold. Abbreviation + comma + the meaning of the abbreviation. They should be separated by a dot.}
-  \end{abstract}
-  \vspace*{1em}
-]
-
-
-
-% Texto principal: Times New Roman, 12pt, espaçamento duplo
-\setstretch{1.5}
-% Espaçamento duplo entre parágrafos
-\setlength{\parskip}{0.5\baselineskip}
-\normalsize
-
+\siintecabstract{This document gives formatting instructions for authors preparing papers for publication in the SIINTEC. Authors are encouraged to prepare manuscripts directly using this template. Use Times New Roman, 10 (Font Size), Bold (or Bold Italic for name of species \textit{Candida albicans}), and >1800 to 2000 characters with spaces.}{Times New Roman, 10 (Font Size), Bold (or Bold Italic for name of species \textit{Candida albicans}). Use the minimum of 3 words and the maximum of 5 words separated by a dot.}{Times New Roman, 10 (Font Size), Bold. Abbreviation + comma + the meaning of the abbreviation. They should be separated by a dot.}
 
 \section{Introdução to Font Sizes for Papers}
 To use this template, you will need to (1) apply the embedded styles to each paragraph-level item in your manuscript or (2) use the specifications shown in Table 1 to format your manuscript, with this template as a visual guide. The page limit for the article is between 6 (six) and 8 (eight) pages, considering text, tables, figures and photos. 
-
-
 
 \begin{table}[ht]
 \centering
@@ -129,8 +31,6 @@ To use this template, you will need to (1) apply the embedded styles to each par
 \renewcommand{\arraystretch}{1.5}
 \fontsize{9}{11}\selectfont
 \setlength{\tabcolsep}{1pt}
-% \renewcommand{\arraystretch}{1.0}
-%\begin{tabular}{|p{0.7cm}|p{1.8cm}|p{1.6cm}|p{1.8cm}|p{2.0cm}|}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 \textbf{Font Size} & \multicolumn{4}{c|}{\textbf{Appearance (in Time New Roman)}} \\
@@ -150,46 +50,39 @@ To use this template, you will need to (1) apply the embedded styles to each par
 \begin{tabular}[c]{@{}l@{}}Sec. headl. \\-- level 2\end{tabular} \\
 \hline
 \end{tabular}
-
 \end{table}
 
 \section{Ease of Use}
 An easy way to comply with the paper formatting requirements is to use this document as a template and simply type your text into it.
 
 The template is used to format your paper and style the text. All margins, column widths, line spaces, and text fonts are prescribed; please do not alter them. 
+
 \subsection{Page Layout}
 Your paper must use a page size corresponding to A4 which is 210 mm wide and 297 mm long. The margins are set as follows: top= 15 mm, bottom= 15 mm, right=17.5 mm, left = 20 mm. Your paper must be in two column format with a space of 1.93 characters between columns.
+
 \subsubsection{Front Matter}
 The title should in Times New Roman, font size 12, bold. Do not use more than 3 lines. The title must be separated from the authors by a double paragraph space (in 12-point font). Use numerical superscript callouts as shown in this template to link authors with their affiliations.
 Corresponding author should be denoted with an asterisk as shown. E-mail address is compulsory for the corresponding author.
 The authors must be separated from the affiliations by a single paragraph space (in 12-point font).
 
 \subsubsection{Text Font}
-
 The mais text should be in Times New Roman font size 12, double space. Paper title must be centered, bold, regular font size 12. Author names must be centered, bold, regular font size 10. Author affiliation must be regular font size 10, italic. Email address must be centered, italic, font size 10. Recommended font sizes are shown in Table 1. No more than 3 levels of headings should be used. Level 1 heading must be left-justified, bold, regular font size 12. Level 2 headings must be left-justified, regular, underline, regular font size 12 and numbered. Level 3 heading must be left-justified, italic font size 10, and the first letter of each word capitalized.
 
 \subsubsection{Equations}
-
 Display equations should be broken and aligned for two-column display unless spanning across two columns is essential. Equations should be centered with equation numbers set flush right. If using MathType, use the Format Equations feature to format all equations as Times + Symbol  or Calibri Math10.
 
 \begin{equation}
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 \end{equation}
 
-
 \subsubsection{Tables}
-
 Styles for table title, table head, and table text are provided. Tables could be in one or two columns, and be placed near their first mention in the body. Tables, figures and graphics need to be placed on separate pages at the back of the manuscript.
 
 \subsubsection{Figures}
 As with tables and equations, figures could be set in one or two columns. The resolution of image should be adequate to reveal the important detail in the figure (300 dpi).
 
-
-
 \subsubsection{Figure Captions}
-
 Figure descriptions should be placed above the figures (however, abbreviations, explanations, or figure legends should be placed below the figure). Figures must be numbered using Arabic numerals, in 12 pt bold font, and the description should be in regular (non-bold) font. The legends below the Figure should be in 10 pt regular font, and single space. Single-line captions (e.g., \autoref{fig:biochip}) should be left-aligned, while multi-line captions should be justified (e.g., \autoref{fig:edfa-setup}). Captions with figure numbers must be placed after their respective figures, as shown in \autoref{fig:edfa-setup}.
-
 
 \begin{figure}[ht]
     \centering
@@ -202,8 +95,6 @@ Figure descriptions should be placed above the figures (however, abbreviations, 
     LD, lase diode. OSA, optical spectrum analyzer. TLS, tunable laser source. VOA, variable optical attenuator. Abbreviations or legends should be separated by a dot.
     \end{flushleft}
 \end{figure}
-
-
 
 \begin{figure}[ht]
     \centering
@@ -230,13 +121,11 @@ Figure descriptions should be placed above the figures (however, abbreviations, 
     \end{tikzpicture}
 \end{graphic}
 
-
-
 \subsubsection{Table Captions}
 Table heads should appear above the tables. Tables must be numbered using Arabic numerals. Table captions must be left-justified and in 12 pt Regular font. Captions with table numbers must be placed before their associated tables, as shown in \autoref{tab:font-sizes}.
 
 \section{References Formats}
-The heading of the References section must not be numbered. All reference items must be in 10 pt font. Number the reference items consecutively in square brackets (e.g. \cite{fogg2003}). When referring to a reference item, please simply use the reference number, as in (name of the first author + and colleagues (if applicable) + year of publication + number of the reference \cite{hirsh2002}.  Do not use “Ref. \cite{eckes2000}” or “Reference \cite{eckes2000}” use the name of the author(s) as described before”.  Multiple references are each numbered with separate brackets (e.g. \cite{fogg2003}, \cite{hirsh2002,eckes2000}).
+The heading of the References section must not be numbered. All reference items must be in 10 pt font. Number the reference items consecutively in square brackets (e.g. \cite{fogg2003}). When referring to a reference item, please simply use the reference number, as in (name of the first author + and colleagues (if applicable) + year of publication + number of the reference \cite{hirsh2002}.  Do not use "Ref. \cite{eckes2000}" or "Reference \cite{eckes2000}" use the name of the author(s) as described before".  Multiple references are each numbered with separate brackets (e.g. \cite{fogg2003}, \cite{hirsh2002,eckes2000}).
 A complete reference should follow the Vancouver style, including the name(s) of the author(s) and/or editor(s), the title of the article, the name of the journal, book, or conference proceedings, the name of the publisher, the year of publication. This should be followed by the volume, issue number (if applicable), and page range. At the end, include the DOI (if available).
 The basic principle is that the reference should be sufficiently detailed so that the reader can easily locate the source and assess its authority and objectivity.
 
@@ -274,22 +163,12 @@ Author(s). Title of article. Journal Title [Internet]. Year [cited Year Month Da
 
 }
 
-
 \section*{Acknowlegement}
 The heading of the Acknowledgment section and the References section must not be numbered.
 
 \section*{References}
 
-\renewcommand{\refname}{} % Optional: custom heading
-\begingroup
-\setstretch{1.0}
-\fontsize{10}{12}\selectfont
-\setlength{\parskip}{0pt}
-\setlength{\itemsep}{0pt}
-
 \bibliographystyle{unsrt}
 \bibliography{refs}
-
-\endgroup
 
 \end{document}
