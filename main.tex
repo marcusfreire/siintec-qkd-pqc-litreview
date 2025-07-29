@@ -76,15 +76,17 @@
 % Main section (bold, 12pt, automatic numbering)
 \section{Introdução to Font Sizes for Papers}
 % Main text: Times 12pt, 1.5 spacing, justified, two columns
+{\siintecmainfont
 To use this template, you will need to (1) apply the embedded styles to each paragraph-level item in your manuscript or (2) use the specifications shown in Table 1 to format your manuscript, with this template as a visual guide. The page limit for the article is between 6 (six) and 8 (eight) pages, considering text, tables, figures and photos.
+}
 
-% Example of table with SIINTEC formatting
+% Example of table with SIINTEC formatting using custom font command
 \begin{table}[ht]
 \centering
-\caption{Font sizes and styles for SIINTEC.} % Caption above the table
+\caption{\siinteccaptionfont Font sizes and styles for SIINTEC.} % Caption above the table
 \label{tab:font-sizes}
 \renewcommand{\arraystretch}{1.5}
-\fontsize{9}{11}\selectfont
+{\siintectablefont
 \setlength{\tabcolsep}{1pt}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
@@ -105,6 +107,7 @@ To use this template, you will need to (1) apply the embedded styles to each par
 \begin{tabular}[c]{@{}l@{}}Sec. headl. \\-- level 2\end{tabular} \\
 \hline
 \end{tabular}
+}
 \end{table}
 
 % New section (example of template usage)
@@ -223,8 +226,10 @@ E-Journal Articles\\
 \textbf{Standard format:}\\
 Author(s). Title of article. Journal Title [Internet]. Year [cited Year Month Day];Volume(Issue):Pages. Available from: URL\\
 \textbf{Example:}\\
-5. Steiner A. Understanding hypertext in the context of reading on the web: Language learners' experience. Curr Issues Educ [Internet]. 2013 [cited 2025 May 27];6(12):2015–219. Available from: \url{http://cie.ed.asu.edu/volume6/number12/} \\
+5. Steiner A. Understanding hypertext in the context of reading on the web: Language learners' experience. Curr Issues Educ [Internet]. 2013 [cited 2025 May 27];6(12):2015–219. Available from: \url{http://cie.ed.asu.edu/v6/n12/}\\
+
 }
+
 
 %--------------------------- ACKNOWLEDGEMENTS -------------------------------%
 

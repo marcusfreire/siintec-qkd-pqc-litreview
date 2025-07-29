@@ -91,29 +91,29 @@
 
 % Main section formatting: bold, 12pt font with numbered sections
 \titleformat{\section}
-    {\normalfont\bfseries\fontsize{12}{14}\selectfont}  % Bold 12pt font
-    {\thesection.}{0.3em}{}                             % Section number + dot + 0.3em space
+    {\siintecsectionfont}  % Use custom section font command
+    {\thesection.}{0.3em}{}
 \titlespacing*{\section}{0pt}{1.2ex plus 0.2ex minus .2ex}{0.5ex}
 
 % Subsection formatting: same style as sections but with subsection numbering
 \titleformat{\subsection}
-    {\normalfont\bfseries\fontsize{12}{14}\selectfont}  % Bold 12pt font
-    {\thesubsection.}{0.3em}{}                          % Subsection number + dot + 0.3em space
+    {\siintecsubsectionfont}  % Use custom subsection font command
+    {\thesubsection.}{0.3em}{}
 \titlespacing*{\subsection}{0pt}{1.2ex plus 0.2ex minus .2ex}{0.5ex}
 
 % Subsubsection formatting: consistent with other heading levels
 \titleformat{\subsubsection}
-    {\normalfont\bfseries\fontsize{12}{14}\selectfont}  % Bold 12pt font
-    {\thesubsubsection.}{0.3em}{}                       % Subsubsection number + dot + 0.3em space
+    {\siintecsubsubsectionfont}  % Use custom subsubsection font command
+    {\thesubsubsection.}{0.3em}{}
 \titlespacing*{\subsubsection}{0pt}{1.2ex plus 0.2ex minus .2ex}{0.5ex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % HEADER AND FOOTER CONFIGURATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\pagestyle{fancy}                    % Use fancy header/footer style
-\renewcommand{\headrulewidth}{0pt}   % Remove header rule line
-\fancyhead{}                         % Clear all header fields
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead{}
 
 % Left header: full-width conference logo
 \fancyhead[l]{%
@@ -121,10 +121,12 @@
     \includegraphics[width=\paperwidth]{siintec.png}}%
 }
 
-\fancyfoot{}                         % Clear all footer fields
+\fancyfoot{}
 
 % Left footer: conference information in gray text
-\fancyfoot[L]{\fontsize{10}{12}\selectfont\textcolor{gray}{ISSN: 2357-7592 \\ \textit{XI INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY \\ Quantum Technologies: The information revolution that will change the future -- 2025}}}
+\fancyfoot[L]{%
+  {\siintecaffilfont\textcolor{gray}{ISSN: 2357-7592 \\ \textit{XI INTERNATIONAL SYMPOSIUM ON INNOVATION AND TECHNOLOGY \\ Quantum Technologies: The information revolution that will change the future -- 2025}}}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TITLE FORMATTING
@@ -134,7 +136,7 @@
 \renewcommand{\maketitle}{%
   \twocolumn[%
     \begin{center}
-      {\vspace*{-1em}\bfseries\fontsize{12}{14}\selectfont\@title\vspace*{-0.5em}\par}
+      {\vspace*{-1em}\siintecsectionfont\@title\vspace*{-0.5em}\par}
     \end{center}
     \@author
     \thispagestyle{fancy}
@@ -149,14 +151,13 @@
 % Custom abstract environment with specific width and font settings
 \renewenvironment{abstract}
  {\begin{center}\begin{minipage}{0.928\textwidth}\setstretch{1}
-        \fontsize{10}{12}\selectfont}
+        \siintecabstractfont}
  {\end{minipage}\end{center}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CAPTION CONFIGURATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Define a new caption type for graphics
 \DeclareCaptionType{graphic}[Graphic][graph]
 
 % Customize caption names to use bold formatting
@@ -168,10 +169,9 @@
 % DOCUMENT TEXT SPACING
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Set document-wide spacing at the beginning of the document
 \AtBeginDocument{%
-  \setstretch{1.5}                           % 1.5 line spacing
-  \setlength{\parskip}{0.5\baselineskip}     % Half-line paragraph separation
+  \setstretch{1.5}
+  \setlength{\parskip}{0.5\baselineskip}
   \normalsize
 }
 
@@ -179,23 +179,21 @@
 % BIBLIOGRAPHY FORMATTING
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Configure bibliography appearance at document end
 \AtEndDocument{%
   \renewcommand{\refname}{References}
   \begingroup
-    \setstretch{1.0}                         % Single spacing for references
-    \fontsize{10}{12}\selectfont             % Smaller font for references
-    \setlength{\parskip}{0pt}                % No paragraph spacing
-    \setlength{\itemsep}{0pt}                % No item spacing
+    \setstretch{1.0}
+    \siintecabstractfont
+    \setlength{\parskip}{0pt}
+    \setlength{\itemsep}{0pt}
   \endgroup
 }
 
-% Bibliography environment formatting with square brackets
 \AtBeginEnvironment{thebibliography}{%
-  \fontsize{10}{12}\selectfont              % 10pt font for bibliography
-  \setlength{\itemsep}{0pt}                 % No spacing between items
-  \setlength{\parskip}{0pt}                 % No paragraph spacing
-  \renewcommand{\@biblabel}[1]{[#1]}        % Square brackets for numbering
+  \siintecabstractfont
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \renewcommand{\@biblabel}[1]{[#1]}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -204,22 +202,22 @@
 
 % Command for setting the document title with proper formatting
 \newcommand{\siintectitle}[1]{%
-  \title{\vspace*{-0.2em}\bfseries\fontsize{12}{14}\selectfont #1\vspace*{-0.5em}}
+  \title{\vspace*{-0.2em}\siintecsectionfont #1\vspace*{-0.5em}}
 }
 
 % Command for setting author with optional affiliation number
 \newcommand{\siintecauthor}[2][]{%
-  \author[#1]{\bfseries\fontsize{10}{12}\selectfont #2\vspace*{-0.6em}}
+  \author[#1]{\siintecauthorfont #2\vspace*{-0.6em}}
 }
 
 % Command for setting affiliation with optional number
 \newcommand{\siintecaffil}[2][]{%
-  \affil[#1]{\vspace*{-0.7em}\itshape\fontsize{10}{12}\selectfont #2}
+  \affil[#1]{\vspace*{-0.7em}\siintecaffilfont #2}
 }
 
 % Command for setting empty date (removes default date)
 \newcommand{\siintecdate}{%
-  \date{\itshape\fontsize{10}{12}\selectfont }
+  \date{\siintecaffilfont }
 }
 
 % Command for creating formatted abstract with keywords and abbreviations
@@ -227,10 +225,10 @@
 \newcommand{\siintecabstract}[3]{%
   \twocolumn[%
     \begin{center}
-      {\vspace*{0em}\bfseries\fontsize{12}{14}\selectfont\@title\vspace*{0.5em}\par}
+      {\vspace*{0em}\siintecsectionfont\@title\vspace*{0.5em}\par}
       \@author
     \end{center}
-    
+
     \thispagestyle{fancy}
     \vspace*{-1.em}
 
@@ -245,6 +243,33 @@
 ]
 }
 
+% Font style commands for SIINTEC template
+
+% Main text: Times New Roman, 12pt
+\newcommand{\siintecmainfont}{\normalfont\fontfamily{ptm}\selectfont\fontsize{12}{14}\selectfont}
+
+% Section title: Times New Roman, 12pt, bold
+\newcommand{\siintecsectionfont}{\normalfont\bfseries\fontfamily{ptm}\selectfont\fontsize{12}{14}\selectfont}
+
+% Subsection title: Times New Roman, 12pt, bold
+\newcommand{\siintecsubsectionfont}{\normalfont\bfseries\fontfamily{ptm}\selectfont\fontsize{12}{14}\selectfont}
+
+% Subsubsection title: Times New Roman, 12pt, bold
+\newcommand{\siintecsubsubsectionfont}{\normalfont\bfseries\fontfamily{ptm}\selectfont\fontsize{12}{14}\selectfont}
+
+% Author name: Times New Roman, 10pt, bold
+\newcommand{\siintecauthorfont}{\normalfont\bfseries\fontfamily{ptm}\selectfont\fontsize{10}{12}\selectfont}
+
+% Affiliation: Times New Roman, 10pt, italic
+\newcommand{\siintecaffilfont}{\normalfont\itshape\fontfamily{ptm}\selectfont\fontsize{10}{12}\selectfont}
+
+% Abstract body: Times New Roman, 10pt, bold
+\newcommand{\siintecabstractfont}{\normalfont\bfseries\fontfamily{ptm}\selectfont\fontsize{10}{12}\selectfont}
+
+% Caption: Times New Roman, 12pt, regular
+\newcommand{\siinteccaptionfont}{\normalfont\fontfamily{ptm}\selectfont\fontsize{12}{14}\selectfont}
+
+% Table text: Times New Roman, 9pt, regular
+\newcommand{\siintectablefont}{\normalfont\fontfamily{ptm}\selectfont\fontsize{9}{11}\selectfont}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END OF CLASS FILE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
