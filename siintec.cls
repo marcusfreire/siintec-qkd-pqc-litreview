@@ -136,7 +136,7 @@
 \renewcommand{\maketitle}{%
   \twocolumn[%
     \begin{center}
-      {\vspace*{-1em}\siintecsectionfont\@title\vspace*{-0.5em}\par}
+      {\vspace*{-1em}\siintecsectionfont\@title\vspace*{-0.0em}\par}
     \end{center}
     \@author
     \thispagestyle{fancy}
@@ -179,18 +179,16 @@
 % BIBLIOGRAPHY FORMATTING
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\AtEndDocument{%
-  \renewcommand{\refname}{References}
-  \begingroup
-    \setstretch{1.0}
-    \siintecabstractfont
-    \setlength{\parskip}{0pt}
-    \setlength{\itemsep}{0pt}
-  \endgroup
+% Set default bibliography style for all documents using this class
+\AtBeginDocument{%
+  \bibliographystyle{unsrt}
 }
 
+
+
 \AtBeginEnvironment{thebibliography}{%
-  \siintecabstractfont
+  \renewcommand{\refname}{}
+  \siintecbibliographyfont
   \setlength{\itemsep}{0pt}
   \setlength{\parskip}{0pt}
   \renewcommand{\@biblabel}[1]{[#1]}
@@ -202,17 +200,17 @@
 
 % Command for setting the document title with proper formatting
 \newcommand{\siintectitle}[1]{%
-  \title{\vspace*{-0.2em}\siintecsectionfont #1\vspace*{-0.5em}}
+  \title{\vspace*{-0.0em}\siintecsectionfont #1\vspace*{-0.55em}}
 }
 
 % Command for setting author with optional affiliation number
 \newcommand{\siintecauthor}[2][]{%
-  \author[#1]{\siintecauthorfont #2\vspace*{-0.6em}}
+  \author[#1]{\siintecauthorfont #2\vspace*{-0.55em}}
 }
 
 % Command for setting affiliation with optional number
 \newcommand{\siintecaffil}[2][]{%
-  \affil[#1]{\vspace*{-0.7em}\siintecaffilfont #2}
+  \affil[#1]{\vspace*{-0.6em}\siintecaffilfont #2}
 }
 
 % Command for setting empty date (removes default date)
@@ -225,12 +223,12 @@
 \newcommand{\siintecabstract}[3]{%
   \twocolumn[%
     \begin{center}
-      {\vspace*{0em}\siintecsectionfont\@title\vspace*{0.5em}\par}
+      {\vspace*{0.0em}\siintecsectionfont\@title\vspace*{0.8em}\par}
       \@author
     \end{center}
 
     \thispagestyle{fancy}
-    \vspace*{-1.em}
+    \vspace*{-0.5em}
 
   \begin{abstract}
     \textbf{Abstract: #1}
@@ -265,6 +263,10 @@
 
 % Abstract body: Times New Roman, 10pt, bold
 \newcommand{\siintecabstractfont}{\normalfont\bfseries\fontfamily{ptm}\selectfont\fontsize{10}{12}\selectfont}
+
+% Bibliography: Times New Roman, 10pt, bold
+\newcommand{\siintecbibliographyfont}{\normalfont\fontfamily{ptm}\selectfont\fontsize{10}{12}\selectfont}
+
 
 % Caption: Times New Roman, 12pt, regular
 \newcommand{\siinteccaptionfont}{\normalfont\fontfamily{ptm}\selectfont\fontsize{12}{14}\selectfont}
