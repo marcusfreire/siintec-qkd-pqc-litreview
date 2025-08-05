@@ -72,6 +72,7 @@
 \RequirePackage{caption}             % Caption formatting and types
 \RequirePackage{xcolor}              % Color support
 \RequirePackage{etoolbox}            % Programming tools for LaTeX
+\RequirePackage{natbib}              % Bibliography management
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PAGE GEOMETRY AND LAYOUT
@@ -171,7 +172,7 @@
 
 \AtBeginDocument{%
   \setstretch{1.5}
-  \setlength{\parskip}{0.5\baselineskip}
+  \setlength{\parskip}{0.4\baselineskip}
   \normalsize
 }
 
@@ -187,10 +188,9 @@
 
 
 \AtBeginEnvironment{thebibliography}{%
-  \renewcommand{\refname}{}
-  \siintecbibliographyfont
-  \setlength{\itemsep}{0pt}
-  \setlength{\parskip}{0pt}
+  \renewcommand{\refname}{} % Remove "References" title
+  \siintecbibliographyfont % Apply custom bibliography font
+  \setlength{\bibsep}{0.5em}
   \renewcommand{\@biblabel}[1]{[#1]}
 }
 
@@ -265,8 +265,7 @@
 \newcommand{\siintecabstractfont}{\normalfont\bfseries\fontfamily{ptm}\selectfont\fontsize{10}{12}\selectfont}
 
 % Bibliography: Times New Roman, 10pt, bold
-\newcommand{\siintecbibliographyfont}{\normalfont\fontfamily{ptm}\selectfont\fontsize{10}{12}\selectfont}
-
+\newcommand{\siintecbibliographyfont}{\setlength{\parskip}{0em}\setstretch{1.0}\normalfont\fontfamily{ptm}\selectfont\fontsize{10}{12}\selectfont}
 
 % Caption: Times New Roman, 12pt, regular
 \newcommand{\siinteccaptionfont}{\normalfont\fontfamily{ptm}\selectfont\fontsize{12}{14}\selectfont}
