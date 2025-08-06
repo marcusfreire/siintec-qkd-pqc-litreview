@@ -93,19 +93,19 @@
 \titleformat{\section}
     {\siintecsectionfont}  % Use custom section font command
     {\thesection.}{0.3em}{}
-\titlespacing*{\section}{0pt}{1.2ex plus 0.2ex minus .2ex}{0.5ex}
+\titlespacing*{\section}{0pt}{1.2ex}{0.5ex}
 
 % Subsection formatting: same style as sections but with subsection numbering
 \titleformat{\subsection}
     {\siintecsubsectionfont}  % Use custom subsection font command
     {\thesubsection.}{0.3em}{}
-\titlespacing*{\subsection}{0pt}{1.2ex plus 0.2ex minus .2ex}{0.5ex}
+\titlespacing*{\subsection}{0pt}{0ex}{0.5ex}
 
 % Subsubsection formatting: consistent with other heading levels
 \titleformat{\subsubsection}
     {\siintecsubsubsectionfont}  % Use custom subsubsection font command
     {\thesubsubsection.}{0.3em}{}
-\titlespacing*{\subsubsection}{0pt}{1.2ex plus 0.2ex minus .2ex}{0.5ex}
+\titlespacing*{\subsubsection}{0pt}{0ex}{0.5ex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % HEADER AND FOOTER CONFIGURATION
