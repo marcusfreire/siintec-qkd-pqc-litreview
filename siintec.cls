@@ -237,7 +237,10 @@
 
     \textbf{Keywords: #2 }
 
-    \textbf{Abbreviations: #3}
+    % Only print Abbreviations if #3 is not empty
+    \ifstrempty{#3}{}{%
+      \textbf{Abbreviations: #3}
+    }
   \end{abstract}
   \vspace*{1em}
 ]
