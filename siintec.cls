@@ -204,6 +204,7 @@
 }
 
 % Command for setting author with optional affiliation number
+\renewcommand\Authands{, }
 \newcommand{\siintecauthor}[2][]{%
   \author[#1]{\siintecauthorfont #2\vspace*{-0.55em}}
 }
