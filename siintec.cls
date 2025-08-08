@@ -94,13 +94,13 @@
 \titleformat{\section}
     {\siintecsectionfont}  % Use custom section font command
     {\thesection.}{0.3em}{}
-\titlespacing*{\section}{0pt}{1.2ex}{0.5ex}
+\titlespacing*{\section}{0pt}{1.1ex}{0.5ex}
 
 % Subsection formatting: same style as sections but with subsection numbering
 \titleformat{\subsection}
     {\siintecsubsectionfont}  % Use custom subsection font command
     {\thesubsection.}{0.3em}{}
-\titlespacing*{\subsection}{0pt}{1.1ex}{0.5ex}
+\titlespacing*{\subsection}{0pt}{1.0ex}{0.5ex}
 
 % Subsubsection formatting: consistent with other heading levels
 \titleformat{\subsubsection}
@@ -190,7 +190,7 @@
 \AtBeginEnvironment{thebibliography}{%
   \renewcommand{\refname}{} % Remove "References" title
   \siintecbibliographyfont % Apply custom bibliography font
-  \setlength{\bibsep}{0.5em}
+  \setlength{\bibsep}{0.4em}
   \renewcommand{\@biblabel}[1]{[#1]}
 }
 
@@ -200,19 +200,22 @@
 
 % Command for setting the document title with proper formatting
 \newcommand{\siintectitle}[1]{%
-  \title{\vspace*{-0.0em}\siintecsectionfont #1\vspace*{-0.55em}}
+  \title{\vspace*{-0.2em}  \setstretch{1.0}\siintecsectionfont #1\vspace*{-0.2em}}
 }
 
 % Command for setting author with optional affiliation number
 \renewcommand\Authand{, }
 \renewcommand\Authands{, }
+\renewcommand{\Authfont}{\setstretch{2.0}\siintecauthorfont}
 \newcommand{\siintecauthor}[2][]{%
-  \author[#1]{\siintecauthorfont #2\vspace*{-0.55em}}
+    \author[#1]{\mbox{#2}}
 }
 
 % Command for setting affiliation with optional number
+\setlength{\affilsep}{0.0em} % Reduce space between author and affiliation
+\renewcommand{\Authfont}{\setstretch{1.0}\siintecauthorfont}
 \newcommand{\siintecaffil}[2][]{%
-  \affil[#1]{\vspace*{-0.6em}\siintecaffilfont #2}
+  \affil[#1]{\siintecaffilfont #2}
 }
 
 % Command for setting empty date (removes default date)
@@ -227,17 +230,21 @@
     \begin{center}
       {\vspace*{0.0em}\siintecsectionfont\@title\vspace*{0.8em}\par}
       \@author
+      \vspace*{-0.5em}
     \end{center}
 
     \thispagestyle{fancy}
-    \vspace*{-0.5em}
+    \vspace*{-0.6em}
 
   \begin{abstract}
     \textbf{Abstract: #1}
 
     \textbf{Keywords: #2 }
 
-    \textbf{Abbreviations: #3}
+    % Only print Abbreviations if #3 is not empty
+    \ifstrempty{#3}{}{%
+      \textbf{Abbreviations: #3}
+    }
   \end{abstract}
   \vspace*{1em}
 ]
