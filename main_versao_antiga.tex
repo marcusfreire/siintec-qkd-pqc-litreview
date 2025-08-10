@@ -1,0 +1,147 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% SIINTEC Template Example Document
+% Simpósio Internacional de Inovação e Tecnologia
+% International Symposium on Innovative Technologies
+%
+% Author: Nelson Alves Ferreira Neto
+% Email: nelsonafn@gmail.com
+% Date: July 29, 2025
+% Version: 1.0
+%
+% Description: Example document demonstrating the use of the SIINTEC LaTeX class
+%              for symposium papers. This template illustrates the correct
+%              formatting of academic articles according to the event guidelines.
+%
+% Features demonstrated:
+%   - Title, author, and affiliation formatting with custom commands
+%   - Abstract with keywords and abbreviations in single column
+%   - Section hierarchy and automatic numbering
+%   - Tables and figures with captions and cross-references
+%   - Numbered mathematical equations
+%   - Vancouver reference style with square brackets
+%   - Two-column layout for main content
+%   - Custom header with logo and ISSN
+%
+% Usage instructions:
+%   1. Replace the example content with your article
+%   2. Update title, authors, and affiliations using \siintectitle, \siintecauthor, \siintecaffil
+%   3. Fill in the abstract, keywords, and abbreviations in \siintecabstract
+%   4. Insert your sections, figures, tables, and references
+%   5. Compile with pdflatex and bibtex (if using automatic references)
+%
+% Requirements:
+%   - siintec.cls (event class)
+%   - siintec.png (event logo)
+%   - Images used in figures
+%   - Reference file refs.bib
+%
+% 2025 Conference Theme:
+%   "Quantum Technologies: The information revolution that will change the future"
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Loads the SIINTEC class (based on article, with custom formatting)
+\documentclass{siintec}
+
+%--------------------------- ARTICLE METADATA -------------------------------%
+
+% Article title (max. 3 lines, Times 12pt bold, centered)
+\siintectitle{Template for Preparing an Article}
+
+% Authors and affiliations (use [*] for corresponding author, [n] for multiple affiliations)
+\siintecauthor[*,1]{Author One}
+\siintecauthor[2]{Author Two}
+\siintecauthor[3]{Author Three}
+\siintecaffil[1]{Organization Name, Department Name, City, State, Country}
+\siintecaffil[2]{Organization Name, Department Name, City, State, Country}
+\siintecaffil[3]{Organization Name, Department Name, City, State, Country}
+\siintecaffil[*]{Corresponding author: institution; addresses; author3@email}
+
+% Remove the default LaTeX date
+\siintecdate
+
+%--------------------------- BEGIN DOCUMENT ---------------------------------%
+
+\begin{document}
+
+%--------------------------- FRONT MATTER -----------------------------------%
+
+% Formatted abstract (single column, then two columns)
+% Parameters: {abstract text}{keywords}{abbreviations}
+\siintecabstract{This document gives formatting instructions for authors preparing papers for publication in the SIINTEC. Authors are encouraged to prepare manuscripts directly using this template. Use Times New Roman, 10 (Font Size), Bold (or Bold Italic for name of species \textit{Candida albicans}), and >1800 to 2000 characters with spaces.}{Times New Roman, 10 (Font Size), Bold (or Bold Italic for name of species \textit{Candida albicans}). Use the minimum of 3 words and the maximum of 5 words separated by a dot.}{Times New Roman, 10 (Font Size), Bold. Abbreviation + comma + the meaning of the abbreviation. They should be separated by a dot.}
+
+%--------------------------- MAIN CONTENT -----------------------------------%
+
+% Main section (bold, 12pt, automatic numbering)
+\section{Introdução}
+% Main text: Times 12pt, 1.5 spacing, justified, two columns
+% O volume de publicações científicas tem crescido de forma exponencial nas últimas décadas, intensificado pela rápida disseminação digital e pela acessibilidade a bases de dados especializadas. Esse cenário torna cada vez mais desafiadora a execução de Revisões Sistemáticas da Literatura (RSL), processo que exige tempo, rigor metodológico e alto esforço humano para garantir abrangência e qualidade. Com o avanço dos Modelos de Linguagem de Grande Escala (Large Language Models – LLMs), como o GPT e suas variantes, observa-se um aumento expressivo no número de estudos explorando sua aplicação para otimizar diferentes fases da RSL \cite{scherbakov2025emergence}.
+
+% Pesquisas recentes demonstram que abordagens híbridas, combinando LLMs e revisão humana, são capazes de reduzir substancialmente o tempo de triagem e extração de dados, mantendo elevada precisão na seleção de estudos relevantes \cite{yehybrid}. Técnicas baseadas em embeddings contextualizados e aprendizado profundo têm mostrado eficácia na pré-classificação e agrupamento temático de artigos, acelerando as etapas iniciais de triagem \cite{alchokr2022supporting}. Além disso, metodologias colaborativas de múltiplos LLMs permitem validar e refinar automaticamente resultados de extração, aproximando-se de fluxos “living systematic reviews” \cite{khancollaborative}.
+
+% Nesse contexto, a necessidade de ferramentas que realizem pré-seleção, classificação e ranqueamento de publicações com base em critérios semânticos torna-se evidente. O presente trabalho propõe e aplica uma abordagem semiautomatizada para RSL que permita a triagem inicial e categorização de artigos científicos relevantes, integrando técnicas de Processamento de Linguagem Natural (PLN) e LLMs, com foco em três objetivos principais: (i) integração de sistemas clássicos com tecnologias quânticas — incluindo Criptografia Pós-Quântica (PQC), Distribuição Quântica de Chaves (QKD) ou ambas; (ii) modelagem dos principais tópicos recorrentes na área; e (iii) recuperação semântica dos artigos mais relevantes, priorizando aqueles com maior potencial de contribuição científica.
+
+Com o amadurecimento das tecnologias quânticas, suas aplicações têm se tornado cada vez mais próximas de uma aplicação fora dos laboratórios (ref). Dentre as técnicas desenvolvidas para lidar com o iminente apocalipse quântico (ref) as mais proeminentes são a Distribuição de Chaves Quânticas (QKD) e a Criptografia Pós-Quântica (PQC).
+Enquanto a primeira se refere a utilização de um Canal Quântico (QCh) para, através das propriedades da mecânica quântica, efetuar o compartilhamento de uma chave criptográfica (teoricamente de segurança incondicional) entre dois pares (ref) que efetuaram a comunicação em um Canal Clássico (CCh), a segunda se refere a implementação de algorítimos de cifragem baseados em problemas matemáticos ainda não solucionados por algoritmos quânticos (ref). Ambos QKD e PQC alcançam o mesmo objetivo: asseguram que a comunicação entre os pares está protegida de qualquer ameaça vinda de um Computador Quântico (QC).
+Estudos práticos envolvendo QKD e PQC estão presentes em laboratórios no mundo inteiro. Madri (ref), Beijing (ref), Cambridge (ref), Tokyo (ref) e Rio de Janeiro (ref) são alguns dos exemplos de cidades que já estudam 
+aplicações de Redes Quânticas (QN) a níveis metropolitanos, estabelecendo a fundação de uma futura Internet Quântica (QI).
+Nesse contexto, a necessidade de ferramentas que realizam pré-seleção, classificação e ranqueamento de publicações com base em critérios semânticos torna-se evidente. O presente trabalho propõe e aplica uma abordagem semi-automatizada para Revisão Sistemática de Literatura (RSL) que permita a triagem inicial e categorização de artigos científicos relevantes, integrando técnicas de Processamento de Linguagem Natural (PLN) e LLMs, com foco em três objetivos principais: (i) integração de sistemas clássicos com tecnologias quânticas — incluindo Criptografia Pós-Quântica (PQC), Distribuição Quântica de Chaves (QKD) ou ambas; (ii) modelagem dos principais tópicos recorrentes na área; e (iii) recuperação semântica dos artigos mais relevantes, priorizando aqueles com maior potencial de contribuição científica.
+
+\section{Trabalhos Relacionados}
+
+\subsection{Redes Quânticas}
+Uma QN é definida pela integração de tecnologias quânticas a redes clássicas pré-existentes (ref). Estudos práticos envolvendo QKD e PQC estão presentes em laboratórios no mundo inteiro. Madri (ref), Beijing (ref), Cambridge (ref), Tokyo (ref) e Rio de Janeiro (ref) são alguns dos exemplos de cidades que já estudam aplicações de redes quânticas a níveis metropolitanos, estabelecendo a fundação de uma futura Internet Quântica (QI). Poderosas nações e grandes empresas como IBM, Google, Microsoft, dentre outras, têm investido fortemente ao longo de anos no aprimoramento de tecnologias quânticas, chegando a um investimento conjunto de [ ] no ano de [ ]  (ref).
+
+\subsection{Revisão semi-Automática}
+Métodos de revisão semi-automatizada baseiam-se na utilização de técnicas de ML e LLM para, dada uma base de artigos pré-estabelecida, elaborar uma fundação teórica sólida na qual o estudo seguirá. RSLs semi-automatizadas tem sido publicadas nas mais diversas áreas do conhecimento (refs), servindo como uma ferramenta útil em tempos de grande acesso a artigos online.
+A utilização de revisões auxiliadas por máquinas foi estudada em [ ].
+Em (ref Constructing and Evaluating Automated Literature Review Systems) os autores partem de um pequeno conjunto de artigos cuidadosamente selecionados e, a partir de meta-dados associados a eles (como referências, citações, similaridades nos títulos), conseguem expandir o número de artigos mantendo a coesão no assunto abordado.
+
+\section{Metodologia}
+A metodologia adotada foi concebida para realizar uma RSL de forma semiautomatizada, visando reduzir o esforço humano nas etapas iniciais de triagem e organização de artigos. O fluxo metodológico é dividido em três macroetapas: (i) Coleta e deduplicação dos dados; (ii) Pré-seleção baseada em LLM; (iii) Modelagem de tópicos; e (iv) Busca semântica.
+
+\subsection{Construção da String de Busca}
+Como etapa preliminar, foi elaborada uma string de busca padronizada para maximizar a relevância dos resultados nas três bases consultadas (IEEE Xplore, Scopus e ACM Digital Library), direcionando o retorno para publicações alinhadas à linha de pesquisa. A consulta foi construída com operadores booleanos aplicados ao campo abstract:
+
+\textit{(("Abstract":"Quantum Key Distribution" OR "Abstract":"QKD" OR "Abstract":"Quantum Cryptography" 
+OR "Abstract":"Quantum Key Exchange" OR "Abstract":"Post-Quantum Cryptography" OR "Abstract":"PQC" 
+OR "Abstract":"Quantum-Resistant Cryptography" OR "Abstract":"Quantum-Safe Cryptography")  
+AND  
+("Abstract":"integration" OR "Abstract":"interoperability" OR "Abstract":"migration" 
+OR "Abstract":"framework" OR "Abstract":"compatibility" OR "Abstract":"communication protocol"))
+}
+
+Os resultados obtidos nas três bases foram exportados em formato CSV, consolidados e submetidos a um processo de deduplicação baseado na correspondência de título e DOI, resultando em 1.057 artigos
+
+\subsection{Pré-seleção automatizada com o LLM (GPT)}
+Foi elaborado um prompt estruturado para avaliação automática dos abstracts, contemplando cinco critérios:
+\begin{itemize}
+    \item Q1 – Tecnologias mencionadas: PQC, QKD ou ambas.
+    \item Q2 – Integração com rede clássica: Implementação real, simulação ou proposta conceitual.
+    \item Q3 – Aplicação ou protótipo: Presença e descrição.
+    \item Q4 – Desafios técnicos: Quantitativos, qualitativos ou ambos.
+    \item Q5 – Domínios de aplicação: Até 10 áreas possíveis.
+\end{itemize}
+
+Cada critério recebeu pontuação específica; Q1 e Q2 foram definidos como critérios eliminatórios — se ambos forem classificados como “Nenhum”, o artigo recebe pontuação –10 e é automaticamente excluído da RSL. Ao final, os artigos foram ranqueados pelo somatório total, reduzindo o conjunto a 911 artigos com potencial de relevância.
+
+\subsection{Utilizando a ferramenta SARA}
+\subsubsection{Modelagem de tópicos (Latent Dirichlet Allocation – LDA)}
+Os abstracts dos artigos pré-selecionados foram processados (tokenização, remoção de stopwords, lematização) e submetidos a modelagem LDA para identificar tópicos latentes e agrupar os artigos em macrotemas como “protocolos híbridos”, “migração para PQC” e “aplicações em blockchain”.
+
+\subsubsection{Busca semântica baseada em embeddings}
+Utilizou-se o modelo all-MiniLM-L6-v2 (Sentence-Transformers) para converter abstracts e consultas em vetores e calcular similaridade por cosseno. Essa abordagem permitiu identificar artigos semanticamente próximos, mesmo na ausência de termos exatos.
+
+%--------------------------- ACKNOWLEDGEMENTS -------------------------------%
+
+%\section*{Agradecimentos}
+%Este trabalho foi parcialmente financiado pelo projeto QuIIN Integração CV-QKD com Redes Clássicas apoiado pelo QuIIN - Inovação Industrial Quântica, Centro de Competência EMBRAPII CIMATEC em Tecnologias Quânticas, com recursos financeiros do PPI IoT/Manufatura 4.0 do edital MCTI número 053/2023, firmado com a EMBRAPII. Este estudo também contou com financiamento, em parte, pela Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - Brasil (CAPES) - Código de Financiamento 001, e pelo Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq), Brasil, sob a concessão nº 403231/2023-0.
+
+%--------------------------- BIBLIOGRAPHY -----------------------------------%
+
+% Only keep the bibliography command, style is now set by the class
+\section*{References}
+\bibliography{refs}
+
+\end{document}

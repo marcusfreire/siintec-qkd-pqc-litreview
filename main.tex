@@ -43,20 +43,37 @@
 
 % Loads the SIINTEC class (based on article, with custom formatting)
 \documentclass{siintec}
+% --- Ajustes para autores do authblk ---
+\makeatletter
+\renewcommand{\siintecauthor}[2][]{%
+  \author[#1]{\siintecauthorfont #2}
+}
+
+\setlength{\affilsep}{0.35em}
+
+\renewcommand\Authand{, }
+\renewcommand\Authands{, }
+\makeatother
 
 %--------------------------- ARTICLE METADATA -------------------------------%
 
 % Article title (max. 3 lines, Times 12pt bold, centered)
-\siintectitle{Template for Preparing an Article}
+\siintectitle{SARA: Abordagem com LLMs para Revisão Sistemática da Literatura com Caso de Uso em Integração Clássico–Quântica para Comunicação Segura}
 
 % Authors and affiliations (use [*] for corresponding author, [n] for multiple affiliations)
-\siintecauthor[*,1]{Author One}
-\siintecauthor[2]{Author Two}
-\siintecauthor[3]{Author Three}
-\siintecaffil[1]{Organization Name, Department Name, City, State, Country}
-\siintecaffil[2]{Organization Name, Department Name, City, State, Country}
-\siintecaffil[3]{Organization Name, Department Name, City, State, Country}
-\siintecaffil[*]{Corresponding author: institution; addresses; author3@email}
+\siintecauthor[*,1]{Naiara Santos}
+\siintecauthor[1,2]{Marcus Freire}
+\siintecauthor[1]{Anderson Tomkelski}
+\siintecauthor[1,2]{Thiago Mello}
+\siintecauthor[2]{Maycon Peixoto}
+\siintecauthor[1]{Ricardo Parizotto}
+\siintecauthor[*,1]{João Souza}
+
+\siintecaffil[1]{QuIIN – Quantum Industrial Innovation,Centro de Competência EMBRAPII CIMATEC em Tecnologias Quânticas,
+SENAI CIMATEC, Salvador, Bahia, Brasil. }
+\siintecaffil[2]{Instituto de Computação, Universidade Federal da Bahia (UFBA), Salvador, Bahia, Brasil}
+%\siintecaffil[3]{Organization Name, Department Name, City, State, Country}
+\siintecaffil[*]{Corresponding author: SENAI CIMATEC; naiara.bonfim@fbter.org.br; joao.marcelo@fieb.org.br}
 
 % Remove the default LaTeX date
 \siintecdate
@@ -69,172 +86,145 @@
 
 % Formatted abstract (single column, then two columns)
 % Parameters: {abstract text}{keywords}{abbreviations}
-\siintecabstract{This document gives formatting instructions for authors preparing papers for publication in the SIINTEC. Authors are encouraged to prepare manuscripts directly using this template. Use Times New Roman, 10 (Font Size), Bold (or Bold Italic for name of species \textit{Candida albicans}), and >1800 to 2000 characters with spaces.}{Times New Roman, 10 (Font Size), Bold (or Bold Italic for name of species \textit{Candida albicans}). Use the minimum of 3 words and the maximum of 5 words separated by a dot.}{Times New Roman, 10 (Font Size), Bold. Abbreviation + comma + the meaning of the abbreviation. They should be separated by a dot.}
+\siintecabstract
+{Este trabalho apresenta o SARA (Sistema de Análise e Revisão semi-Automatizada), uma abordagem que integra Large Language Models (LLMs), modelagem de tópicos e busca semântica para apoiar Revisões Sistemáticas da Literatura (RSL). Como caso de uso, aplicou-se o SARA ao domínio da integração entre redes clássicas e comunicações quânticas seguras, contemplando \textit{Quantum Key Distribution} (QKD) e \textit{Post-Quantum Cryptography} (PQC); realizando deduplicação, pré-seleção, categorização e ranqueamento de artigos, priorizando publicações com maior potencial de contribuição científica. Os resultados indicam predominância de estudos sobre QKD, seguidos por PQC e abordagens híbridas, com destaque para telecomunicações, IoT e sistemas críticos. A SARA demonstrou identificar publicações alinhadas às consultas do pesquisador e estudos conceitualmente próximos, evidenciando seu potencial para otimizar processos de RSL em áreas tecnológicas emergentes.}
+{Revisão Sistemática da Literatura. Modelagem de Tópicos. Busca Semântica. LLMs. Comunicações Quânticas Seguras.}
+{SARA, Sistema de Análise e Revisão semi-Automatizada. LLM, Large Language Model. QKD, Quantum Key Distribution. PQC, Post-Quantum Cryptography. RSL, Revisão Sistemática da Literatura. PLN, Processamento de Linguagem Natural.}
+
 
 %--------------------------- MAIN CONTENT -----------------------------------%
 
 % Main section (bold, 12pt, automatic numbering)
-\section{Introdução to Font Sizes for Papers}
+\section{Introdução}
 % Main text: Times 12pt, 1.5 spacing, justified, two columns
-{\siintecmainfont
-To use this template, you will need to (1) apply the embedded styles to each paragraph-level item in your manuscript or (2) use the specifications shown in Table 1 to format your manuscript, with this template as a visual guide. The page limit for the article is between 6 (six) and 8 (eight) pages, considering text, tables, figures and photos.
-}
+O volume de publicações científicas tem crescido exponencialmente nas últimas décadas, impulsionado pela disseminação digital e pela ampla acessibilidade a bases de dados especializadas, tornando mais desafiadora a execução de Revisões Sistemáticas da Literatura (RSL), que demandam tempo, rigor metodológico e elevado esforço humano. Com o avanço dos Modelos de Linguagem de Grande Escala (Large Language Models – LLMs), como o GPT e suas variantes, cresce o número de estudos explorando seu uso para otimizar diferentes fases da RSL \cite{scherbakov2025emergence_RSL}, sendo que abordagens híbridas, combinando LLMs e revisão humana, demonstram reduzir o tempo de triagem e extração de dados, mantendo elevada precisão \cite{yehybrid_RSL}, enquanto técnicas baseadas em embeddings contextualizados e aprendizado profundo mostram eficácia na pré-classificação e agrupamento temático de artigos, acelerando as etapas iniciais de triagem \cite{alchokr2022supporting_RSL}.
 
-% Example of table with SIINTEC formatting using custom font command
+Nos últimos anos, o volume de publicações relacionadas a tecnologias quânticas aplicadas à segurança da informação tem crescido de forma acelerada, acompanhando a maturação de protótipos e a realização de testes em cenários de campo como o exemplo da Rede Metropolitana Quântica do Rio \cite{temporao2024rio}. Esse avanço é impulsionado tanto pela corrida para viabilizar comunicações invioláveis quanto pela preocupação com o chamado “apocalipse quântico”, a possibilidade de que computadores quânticos suficientemente poderosos comprometam algoritmos criptográficos atualmente em uso \cite{abughanem2025ibm}. Entre as abordagens para mitigar esse risco destacam-se: (i) a \textit{Quantum Key Distribution} (QKD), que utiliza um canal quântico para compartilhar chaves criptográficas entre dois pares de forma segura, explorando princípios fundamentais da mecânica quântica e apoiando-se em um canal clássico para autenticação \cite{qi2021bennett}; e (ii) a \textit{Post-Quantum Cryptography} (PQC), que emprega algoritmos de cifragem baseados em problemas matemáticos considerados difíceis até mesmo para computadores quânticos \cite{alagic2022status}. Embora distintas na implementação, QKD e PQC perseguem o mesmo objetivo: garantir que a comunicação permaneça segura frente a adversários dotados de capacidades quânticas.
+
+Nesse contexto, a necessidade de ferramentas que realizam pré-seleção, classificação e ranqueamento de publicações com base em critérios semânticos torna-se evidente. O presente trabalho propõe e aplica uma abordagem semi-automatizada para RSL, que denominamos o SARA (Sistema de Análise e Revisão semi-Automatizada), que permita a triagem inicial e categorização de artigos científicos relevantes, integrando técnicas de Processamento de Linguagem Natural (PLN) e LLMs, para esse caso de uso do SARA nosso foco é em três objetivos principais: (i) integração de sistemas clássicos com tecnologias quânticas, incluindo PQC, QKD ou ambas; (ii) modelagem dos principais tópicos recorrentes na área; e (iii) recuperação semântica dos artigos mais relevantes, priorizando aqueles com maior potencial de contribuição científica.
+
+\section{Trabalhos Relacionados}
+
+A pesquisa em métodos computacionais para apoiar RSL tem evoluído rapidamente, acompanhando o avanço de técnicas de PLN, aprendizado profundo e, mais recentemente, LLMs \cite{galli2025large}. As abordagens variam em escopo e grau de automação, abrangendo desde fluxos de trabalho baseados em machine learning tradicional até sistemas interativos com capacidade de compreensão semântica. Apesar de avanços expressivos, observa-se que poucos trabalhos integram de forma plena mecanismos de ranqueamento orientados por perguntas do pesquisador, modelagem de tópicos e busca semântica contextual, elementos fundamentais para priorizar publicações de maior relevância em domínios complexos.
+
 \begin{table}[ht]
 \centering
-\caption{\siinteccaptionfont Font sizes and styles for SIINTEC.} % Caption above the table
-\label{tab:font-sizes}
-\renewcommand{\arraystretch}{1.5}
-{\siintectablefont
-\setlength{\tabcolsep}{1pt}
-\begin{tabular}{|c|c|c|c|c|}
+\caption{
+Comparação de trabalhos relacionados.  
+Colunas: (1) Uso de LLM; (2) Ranqueamento por perguntas; (3) Modelagem de tópicos; (4) Busca semântica; (5) Ano de publicação.
+}
+\label{tab:relatedwork}
+\begin{tabular}{c c c c c c}
 \hline
-\textbf{Font Size} & \multicolumn{4}{c|}{\textbf{Appearance (in Time New Roman)}} \\
-\cline{2-5}
- & \textbf{Regular} & \textbf{Bold} & \textbf{Italic} & \textbf{Underline} \\
+\textbf{Ref.} & \textbf{(5)} & \textbf{(1)} & \textbf{(2)} & \textbf{(3)} & \textbf{(4)} \\
 \hline
-10 &
-\begin{tabular}[c]{@{}l@{}}Author affil.\\ Abrv. of tab.,\\ figures, box;\\ References\end{tabular} &
-\begin{tabular}[c]{@{}l@{}}Abst. body\\ Keywords,\\ Abbrev. \end{tabular} &
-\begin{tabular}[c]{@{}l@{}}Corresp. auth\\ Receiv Line\end{tabular} &
-\\
-\hline
-12 &
-\begin{tabular}[c]{@{}l@{}}Main text,\\ Desc. of fig.,\\ tab. box \\ and graphics\\ Sec. head -- l2\end{tabular} &
-\begin{tabular}[c]{@{}l@{}}Sec. headl. \\-- level 1\end{tabular} &
-\begin{tabular}[c]{@{}l@{}}Sec. headl. \\-- level 3\end{tabular} &
-\begin{tabular}[c]{@{}l@{}}Sec. headl. \\-- level 2\end{tabular} \\
+\cite{pham2021text} & 2021 & Não & Não & Sim & Sim \\
+\cite{tsang2022artificial} & 2022 & Não & Parcial & Sim & Sim \\
+\cite{ramesh2022automated} & 2022 & Não & Parcial & Não & Parcial \\
+\cite{yehybrid_RSL}& 2024 & Não & Não & Sim & Parcial \\
+\cite{galli2025large} & 2025 & Sim & Sim & Sim & Sim \\
+\textbf{SARA} & 2025 & \textbf{Sim} & \textbf{Sim} & \textbf{Sim} & \textbf{Sim} \\
 \hline
 \end{tabular}
-}
 \end{table}
 
-% New section (example of template usage)
-\section{Ease of Use}
-An easy way to comply with the paper formatting requirements is to use this document as a template and simply type your text into it.
 
-The template is used to format your paper and style the text. All margins, column widths, line spaces, and text fonts are prescribed; please do not alter them.
+Conforme mostrado na Tabela~\ref{tab:relatedwork}, \cite{pham2021text} apresentam um workflow semi-automatizado com Random Forest, SVD, LDA e embeddings, reduzindo a carga de triagem em 55--63\%.
+\cite{tsang2022artificial} combinam embeddings BERT, BERTopic e recuperação semântica, permitindo consultas interativas para filtragem.
+\cite{yehybrid_RSL} aplicam análise bibliométrica e \textit{topic modeling} para mapear tendências, porém sem recuperação semântica baseada em embeddings.
+\cite{ramesh2022automated} revisam \textit{active learning} para triagem, com feedback humano influenciando a priorização.
+Por fim, \cite{galli2025large} integram LLMs para sumarização, classificação e ranqueamento guiado por perguntas, aliando busca semântica e modelagem de tópicos.
 
-% Subsection: page layout
-\subsection{Page Layout}
-Your paper must use a page size corresponding to A4 which is 210 mm wide and 297 mm long. The margins are set as follows: top= 15 mm, bottom= 15 mm, right=17.5 mm, left = 20 mm. Your paper must be in two column format with a space of 1.93 characters between columns.
+Diante desse panorama, a abordagem SARA proposta neste trabalho diferencia-se por combinar, de forma integrada, os quatro elementos-chave observados na literatura: uso de LLMs, ranqueamento orientado por perguntas do pesquisador, modelagem de tópicos recorrentes e recuperação semântica avançada. Embora \cite{galli2025large} também explorem ranqueamento guiado por perguntas, sua aplicação ocorre de forma independente à modelagem de tópicos, limitando o potencial de ajuste contextual da pontuação dos artigos. No SARA, as respostas às perguntas do pesquisador são diretamente vinculadas à estrutura temática extraída do corpus, permitindo reponderação dinâmica dos pesos semânticos e priorização mais precisa dos estudos relevantes. Além disso, o fluxo de pré-seleção e categorização foi desenhado para otimizar a etapa inicial da RSL, reduzindo o esforço humano e aumentando a precisão na identificação de estudos pertinentes. A seguir, a Seção~\ref{sec:metodologia} descreve detalhadamente a arquitetura, as técnicas empregadas e o processo de implementação da SARA.
 
-% Subsubsections: detailed formatting instructions
-\subsubsection{Front Matter}
-The title should in Times New Roman, font size 12, bold. Do not use more than 3 lines. The title must be separated from the authors by a double paragraph space (in 12-point font). Use numerical superscript callouts as shown in this template to link authors with their affiliations.
-Corresponding author should be denoted with an asterisk as shown. E-mail address is compulsory for the corresponding author.
-The authors must be separated from the affiliations by a single paragraph space (in 12-point font).
 
-\subsubsection{Text Font}
-The main text should be in Times New Roman font size 12, double space. Paper title must be centered, bold, regular font size 12. Author names must be centered, bold, regular font size 10. Author affiliation must be regular font size 10, italic. Email address must be centered, italic, font size 10. Recommended font sizes are shown in Table 1. No more than 3 levels of headings should be used. Level 1 heading must be left-justified, bold, regular font size 12. Level 2 headings must be left-justified, regular, underline, regular font size 12 and numbered. Level 3 heading must be left-justified, italic font size 10, and the first letter of each word capitalized.
 
-\subsubsection{Equations}
-Display equations should be broken and aligned for two-column display unless spanning across two columns is essential. Equations should be centered with equation numbers set flush right. If using MathType, use the Format Equations feature to format all equations as Times + Symbol  or Calibri Math10.
+\section{Metodologia}
+\label{sec:metodologia}
+A metodologia adotada é concebida para realizar uma RSL de forma semiautomatizada, visando reduzir o esforço humano nas etapas iniciais de triagem e organização de artigos. O fluxo metodológico, ilustrado na Figura~\ref{fig:fluxo_sara}, compreende quatro macroetapas: (i) coleta e deduplicação dos dados; (ii) pré-seleção baseada em LLM; (iii) modelagem de tópicos; e (iv) busca semântica. Esse processo, denominado SARA, abrange desde a deduplicação inicial até a priorização final dos artigos, incorporando modelagem de tópicos e ranqueamento semântico guiado por perguntas do pesquisador.
 
-\begin{equation}
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-\end{equation}
-
-\subsubsection{Tables}
-Styles for table title, table head, and table text are provided. Tables could be in one or two columns, and be placed near their first mention in the body. Tables, figures and graphics need to be placed on separate pages at the back of the manuscript.
-
-\subsubsection{Figures}
-As with tables and equations, figures could be set in one or two columns. The resolution of image should be adequate to reveal the important detail in the figure (300 dpi).
-
-\subsubsection{Figure Captions}
-Figure descriptions should be placed above the figures (however, abbreviations, explanations, or figure legends should be placed below the figure). Figures must be numbered using Arabic numerals, in 12 pt bold font, and the description should be in regular (non-bold) font. The legends below the Figure should be in 10 pt regular font, and single space. Single-line captions (e.g., \autoref{fig:biochip}) should be left-aligned, while multi-line captions should be justified (e.g., \autoref{fig:edfa-setup}). Captions with figure numbers must be placed after their respective figures, as shown in \autoref{fig:edfa-setup}.
-
-% Example of figure with caption and explanatory legends
 \begin{figure}[ht]
     \centering
-    \caption{Forward single pass experimental set-up for evaluating EDFA performance.}
-    \label{fig:edfa-setup}
-    \includegraphics[width=0.7\linewidth]{edfa-setup.png}
-    \begin{flushleft}
-    \siintecbibliographyfont
-    LD, lase diode. OSA, optical spectrum analyzer. TLS, tunable laser source. VOA, variable optical attenuator. Abbreviations or legends should be separated by a dot.
-    \end{flushleft}
+
+    \includegraphics[width=0.95\linewidth]{img/fluxo_sara.pdf}
+
+        \caption{Fluxo metodológico da abordagem SARA. O processo inicia-se com a deduplicação do corpus, seguido de avaliação automática dos \textit{abstracts} por meio de prompt estruturado, modelagem de tópicos com LDA e busca semântica. Na etapa final, realiza-se a filtragem, classificação e ranqueamento dos artigos com base nas respostas às perguntas do pesquisador.}
+
+    \label{fig:fluxo_sara}
 \end{figure}
 
-% Example of simple figure
-\begin{figure}[ht]
-    \centering
-    \caption{Biochip Reader integrated circuit.}
-    \label{fig:biochip}
-    \includegraphics[width=0.7\linewidth]{biochip.png}
-\end{figure}
+\subsection{Construção da String de Busca}
+Como etapa preliminar, foi elaborada uma string de busca padronizada para maximizar a relevância dos resultados nas três bases consultadas (IEEE Xplore, Scopus e ACM Digital Library), direcionando o retorno para publicações alinhadas à linha de pesquisa. A consulta foi construída com operadores booleanos aplicados ao campo abstract:
 
-% Example of graphic with TikZ
-\begin{graphic}[ht]
-    \centering
-    \caption{Diagram example created with TikZ.}
-    \label{grph:tikz}
-    \begin{tikzpicture}[scale=1.2]
-      % Axes
-      \draw[thick,->] (0,0) -- (4,0) node[anchor=west] {};
-      \draw[thick,->] (0,0) -- (0,3) node[anchor=south] {};
-      % X axis label (bold)
-      \node[anchor=west, font=\bfseries] at (-0.5,3.2) {X axis};
-      % Mathematical curve
-      \draw[thick,domain=0:3.5,smooth,samples=50] plot(\x,{2*sin(60*\x)*exp(-0.3*\x)+1+0.3*\x});
-      % Arrow on X axis
-      \draw[thick] (3.95,-0.08) -- (4,0) -- (3.95,0.08);
-    \end{tikzpicture}
-\end{graphic}
-
-\subsubsection{Table Captions}
-Table heads should appear above the tables. Tables must be numbered using Arabic numerals. Table captions must be left-justified and in 12 pt Regular font. Captions with table numbers must be placed before their associated tables, as shown in \autoref{tab:font-sizes}.
-
-%--------------------------- REFERENCES --------------------------------------%
-
-\section{References Formats}
-The heading of the References section must not be numbered. All reference items must be in 10 pt font. Number the reference items consecutively in square brackets (e.g. \cite{fogg2003}). When referring to a reference item, please simply use the reference number, as in (name of the first author + and colleagues (if applicable) + year of publication + number of the reference \cite{hirsh2002}.  Do not use "Ref. \cite{eckes2000}" or "Reference \cite{eckes2000}" use the name of the author(s) as described before".  Multiple references are each numbered with separate brackets (e.g. \cite{fogg2003}, \cite{hirsh2002,eckes2000}).
-A complete reference should follow the Vancouver style, including the name(s) of the author(s) and/or editor(s), the title of the article, the name of the journal, book, or conference proceedings, the name of the publisher, the year of publication. This should be followed by the volume, issue number (if applicable), and page range. At the end, include the DOI (if available).
-The basic principle is that the reference should be sufficiently detailed so that the reader can easily locate the source and assess its authority and objectivity.
-
-% Vancouver style reference examples
-\textbf{\underline{Vancouver Style}}
-
-{\siintecbibliographyfont
-
-Book\\
-\textbf{Standard format:}\\
-Author(s). Title of the book. Edition (if not first). Place of publication: Publisher; Year. p. pages (if applicable).\\
-\textbf{Example:}\\
-1. Fogg BJ. Persuasive technology: using computers to change what we think and do. Boston: Morgan Kaufmann Publishers; 2003. p. 30–5.\\
-
-Journal Articles\\
-\textbf{Standard format:}\\
-Author(s). Title of article. Journal Title. Year;Volume(Issue):Pages.\\
-\textbf{Example:}\\
-2. Hirsh H, Coen MH, Mozer MC, Hasha R, Flanagan JL. Room service, AI-style. IEEE Intell Syst. 2002;14(2):8–19.\\
-
-Conference Proceedings\\
-\textbf{Standard format:}\\
-Author(s). Title of article. In: Title of conference. Place of publication: Publisher; Year. p. pages.\\
-\textbf{Example:}\\
-3. Leclercq P, Heylighen A. 5.8 analogies per hour: A designer's view on analogical reasoning. In: 7th International Conference on Artificial Intelligence in Design. Dordrecht: Kluwer Academic Publishers; 2016. p. 285–303.\\
-
-E-Books\\
-\textbf{Standard format:}\\
-Author(s). Title of e-book [e-book]. Place of publication: Publisher; Year [cited Year Month Day]. Available from: URL\\
-\textbf{Example:}\\
-4. Eckes T. The developmental social psychology of gender [e-book]. Mahwah (NJ): Lawrence Erlbaum; 2000 [cited 2025 May 27]. Available from: netLibrary e-book.\\
-
-E-Journal Articles\\
-\textbf{Standard format:}\\
-Author(s). Title of article. Journal Title [Internet]. Year [cited Year Month Day];Volume(Issue):Pages. Available from: URL\\
-\textbf{Example:}\\
-5. Steiner A. Understanding hypertext in the context of reading on the web: Language learners' experience. Curr Issues Educ [Internet]. 2013 [cited 2025 May 27];6(12):2015–219. Available from: \url{http://cie.ed.asu.edu/v6/n12/}\\
-
+\textit{(("Quantum Key Distribution" OR "QKD" OR "Quantum Cryptography" OR "Quantum Key Exchange" OR "Post-Quantum Cryptography" OR "PQC" OR "Quantum-Resistant Cryptography" OR "Quantum-Safe Cryptography")  
+AND  
+("integration" OR "interoperability" OR "migration" OR "framework" OR "compatibility" OR "communication protocol"))
 }
+
+O primeiro conjunto de termos refere-se às tecnologias alvo desta revisão: QKD, PQC e variações terminológicas associadas à criptografia quântica e pós-quântica; enquanto o segundo conjunto abrange conceitos ligados à integração e interoperabilidade de sistemas, assegurando que os resultados contemplassem estudos focados tanto no aspecto tecnológico quanto na aplicação em arquiteturas de comunicação.
+
+Os resultados obtidos nas três bases foram exportados em formato CSV, consolidados e submetidos a um processo de deduplicação com base na correspondência de título, ano e DOI (quando disponível, pois nem todos os artigos possuíam esse identificador), resultando em um total de 1.057 artigos.
+
+\subsection{Pré-seleção automatizada com o LLM (GPT)}
+Foi elaborado um prompt estruturado para a avaliação automática dos abstracts, abrangendo cinco critérios: (1) tecnologias mencionadas — PQC, QKD, ambas ou nenhuma; (2) integração com rede clássica — implementação real, simulação, proposta conceitual ou nenhuma integração; (3) aplicação ou protótipo — presença e descrição; (4) desafios técnicos — quantitativos, qualitativos ou ambos; e (5) domínios de aplicação — até dez áreas possíveis.
+
+Cada critério recebeu uma pontuação específica, sendo as questões (1) e (2) são definidos como critérios eliminatórios — caso ambos sejam classificados como “Nenhuma”, o artigo recebe pontuação de –10 e é automaticamente excluído da RSL. As questões (3), (4) e (5), por sua vez, são de caráter classificatório: caso seja identificada no abstract alguma aplicação, desafio técnico ou domínio de aplicação explicitamente descrito, é atribuído 1 ponto para cada ocorrência. Ao final, os artigos são ranqueados com base no somatório das pontuações, resultando em um conjunto reduzido de 911 trabalhos com potencial relevância.
+
+\subsection{Modelagem de tópicos (Latent Dirichlet Allocation – LDA)}
+Para a etapa de organização temática, empregou-se o algoritmo Latent Dirichlet Allocation (LDA)\cite{blei2003latent_LDA}, visando à detecção automática de tópicos predominantes no conjunto de artigos pré-selecionados. Os abstracts são previamente processados em seguida submetidos à modelagem LDA, o que permite a identificação de tópicos latentes e o agrupamento dos estudos em macrotemas representativos da área \cite{egger2022topic_bertTOPIC}.
+
+\subsection{Busca semântica baseada em embeddings}
+Após a etapa de modelagem de tópicos com LDA, os resultados são utilizados para orientar a recuperação de documentos semanticamente relevantes. Para essa tarefa, adota-se o modelo pré-treinado all-MiniLM-L6-v2, disponibilizado pela biblioteca Sentence-Transformers, responsável por converter tanto os abstracts quanto as consultas do pesquisador em representações vetoriais densas. A similaridade entre documentos e consultas é calculada por meio da métrica de cosseno, permitindo identificar publicações relacionadas mesmo na ausência de coincidência lexical exata \cite{seo2022ta_sentece_BERT, kamil2025advances_semantic_search}.
+
+A fim de potencializar a qualidade da recuperação, cada representação textual foi enriquecida com informações complementares extraídas automaticamente por um LLM (ChatGPT-4), de modo a incluir aspectos essenciais sobre a aplicação, o tipo de tecnologia abordada (PQC, QKD ou ambas) e o nível de integração proposto (real, simulação ou conceitual). Esse enriquecimento semântico aumentou a capacidade do modelo em capturar nuances contextuais, resultando em recomendações mais precisas e alinhadas aos objetivos da revisão.
+
+O fluxo completo da abordagem SARA, desde a deduplicação inicial até a priorização final dos artigos, é apresentado na Figura~\ref{fig:fluxo_sara}, destacando as etapas de modelagem de tópicos e ranqueamento semântico guiado por perguntas do pesquisador, modelagem de tópicos e a busca semântica. Na próxima seção, apresentam-se os resultados obtidos com a aplicação desse fluxo, discutindo-se tanto o desempenho das etapas individuais quanto as contribuições do sistema como um todo para a execução de Revisões Sistemáticas da Literatura no domínio de integração entre QKD e PQC.
+
+\section{Resultados e Discussões}
+A aplicação da abordagem SARA resultou na identificação e categorização de um conjunto significativo de artigos distribuídos entre as tecnologias consideradas nesta revisão: QKD, PQC e abordagens híbridas que combinam ambas e como pré-requisito fosse integrado na rede clássica, ou seja, nossa infraestrutura e tecnologias usadas atualmente. 
+
+Como apresentado na Figura~\ref{fig:qtd_artigos_tecnologia}, observou-se predominância de publicações relacionadas exclusivamente à QKD (497 artigos), seguida por PQC (306 artigos) e, em menor número, estudos que abordam simultaneamente QKD e PQC (71 artigos). Essa distribuição evidencia não apenas o estágio mais avançado da literatura sobre QKD, mas também a crescente, embora ainda limitada, exploração de soluções híbridas que integram as duas tecnologias, aspecto particularmente relevante para esta pesquisa, dado o foco em estratégias de integração segura entre sistemas clássicos e quânticos.
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=0.95\linewidth]{img/q1.pdf}
+    \caption{Distribuição dos artigos identificados por tecnologia: QKD, PQC e abordagens híbridas (QKD+PQC).}
+    \label{fig:qtd_artigos_tecnologia}
+\end{figure}
+
+A análise dos domínios de aplicação (Figura~\ref{fig:dominios_aplicacao}) mostra predominância do setor de telecomunicações e 5G, refletindo a relevância de QKD e PQC para proteger canais de alta capacidade e baixa latência. Em seguida, destacam-se IoT/Edge, governo/defesa, data centers/cloud e sistemas via satélite, evidenciando o interesse em reforçar a segurança de redes críticas e infraestruturas sensíveis. Áreas como blockchain/DLT, sistemas industriais, setor financeiro e veículos conectados também indicam um amplo potencial de adoção dessas tecnologias no ecossistema digital.
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=1\linewidth]{img/q5_dominios.pdf}
+    \caption{Distribuição dos artigos por domínio de aplicação das tecnologias QKD e PQC.}
+    \label{fig:dominios_aplicacao}
+\end{figure}
+
+Para avaliar a capacidade da abordagem SARA em identificar publicações alinhadas a consultas específicas do pesquisador, foi formulada a pergunta: \textit{“What research applies quantum key distribution (QKD) or post-quantum cryptography (PQC) in 5G or telecommunications networks?”}. A busca semântica, utilizando embeddings vetoriais e cálculo de similaridade por cosseno, retornou um conjunto de artigos ranqueados de acordo com sua proximidade semântica em relação à consulta. A Figura~\ref{fig:busca_semantica} apresenta a projeção bidimensional (PCA) desse espaço vetorial, onde os pontos em azul representam os artigos selecionados como mais relevantes e o ponto marcado em vermelho indica a posição vetorial da pergunta no mesmo espaço. Os pontos em cinza correspondem a artigos não selecionados. Esse resultado demonstra que a SARA não apenas localiza publicações que compartilham termos com a consulta, mas também aquelas que apresentam relação conceitual, mesmo com vocabulário distinto, atribuindo um grau quantitativo de similaridade que permite priorizar as leituras mais pertinentes.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{img/busca_semantica.jpeg}
+    \caption{Projeção bidimensional (PCA) do espaço vetorial resultante da busca semântica  para a consulta “What research applies quantum key distribution (QKD) or post-quantum cryptography (PQC) in 5G or telecommunications networks?”. Pontos azuis representam artigos selecionados como mais relevantes, pontos cinza indicam artigos não selecionados e a estrela vermelha corresponde à posição da consulta no espaço semântico.}
+    \label{fig:busca_semantica}
+\end{figure}
+
+Em síntese, os resultados confirmam que a SARA integra de forma eficaz modelagem de tópicos, enriquecimento semântico e ranqueamento por perguntas, otimizando a seleção e priorização de artigos em RSL. O sistema demonstrou capacidade de recuperar publicações alinhadas às consultas e identificar estudos conceitualmente relacionados, mesmo sem correspondência lexical. A predominância de telecomunicações e 5G reforça a relevância de QKD e PQC para a segurança de redes críticas, enquanto as soluções híbridas despontam como campo promissor. Esses achados consolidam a SARA como ferramenta útil para pesquisas em áreas tecnológicas emergentes.
+
+\section{Conclusão}
+
+Este trabalho apresentou a abordagem SARA, um fluxo metodológico semi-automatizado para apoio a RSL, integrando modelagem de tópicos, enriquecimento semântico e ranqueamento orientado por perguntas, com foco no domínio da integração entre redes clássicas e comunicações quânticas seguras (QKD e PQC). A aplicação da SARA demonstrou que a combinação de técnicas de NLP e LLMs pode reduzir significativamente o esforço humano na triagem e priorização de artigos, mantendo alta relevância nos resultados. As análises evidenciaram que, além de recuperar publicações diretamente alinhadas às consultas do pesquisador, o sistema é capaz de identificar estudos conceitualmente relacionados, mesmo na ausência de termos coincidentes, aspecto essencial em áreas com terminologia técnica diversificada e em rápida evolução.
+
+Entre as contribuições principais, destacam-se: (i) a integração de modelagem de tópicos e busca semântica para organização e filtragem do corpus; (ii) o uso de enriquecimento textual via LLMs para aumentar a densidade semântica e melhorar a recuperação; e (iii) a capacidade de ranqueamento dinâmico baseado em perguntas, permitindo ao pesquisador direcionar o foco da revisão. O estudo também reforçou a relevância das tecnologias QKD e PQC para setores críticos, com ênfase em telecomunicações, IoT e sistemas híbridos.
+
+Como trabalhos futuros, propõe-se: (i) ampliar a base de dados analisada, incorporando múltiplas fontes indexadas e literatura cinzenta; (ii) explorar outras arquiteturas de embeddings e modelos de retrieval-augmented generation (RAG) para melhorar a precisão da busca semântica; (iii) incorporar métricas quantitativas de avaliação, como precision, recall e F1-score, para mensurar objetivamente o desempenho; e (iv) adaptar a SARA a outros domínios científicos, validando sua generalização e comparando-a com abordagens tradicionais de RSL.
 
 
 %--------------------------- ACKNOWLEDGEMENTS -------------------------------%
 
-\section*{Acknowlegement}
-The heading of the Acknowledgment section and the References section must not be numbered.
+%\section*{Agradecimentos}
+%Este trabalho foi parcialmente financiado pelo projeto QuIIN Integração CV-QKD com Redes Clássicas apoiado pelo QuIIN - Inovação Industrial Quântica, Centro de Competência EMBRAPII CIMATEC em Tecnologias Quânticas, com recursos financeiros do PPI IoT/Manufatura 4.0 do edital MCTI número 053/2023, firmado com a EMBRAPII. Este estudo também contou com financiamento, em parte, pela Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - Brasil (CAPES) - Código de Financiamento 001, e pelo Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq), Brasil, sob a concessão nº 403231/2023-0.
 
 %--------------------------- BIBLIOGRAPHY -----------------------------------%
 
